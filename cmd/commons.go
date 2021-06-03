@@ -5,7 +5,7 @@ package cmd
 
 var (
 	ver        string = "1.0.0"
-	prod       string = "tr"
+	prod       string = "cnv"
 	inputFile  string = ""
 	outputFile string = ""
 )

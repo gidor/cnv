@@ -37,9 +37,6 @@ func yaml2json() {
 
 	var _internal = &internal{}
 
-	var inputFile string
-	var outputFile string
-
 	var reader io.ReadCloser = os.Stdin
 	var writer io.WriteCloser = os.Stdout
 
@@ -49,15 +46,17 @@ func yaml2json() {
 	}()
 
 	if inputFile != "" {
-		if in, e := os.OpenFile(inputFile, os.O_RDONLY, 0755); e != nil {
-			panic(e)
+		if in, err := os.OpenFile(inputFile, os.O_RDONLY, 0755); err != nil {
+			panic(err)
 		} else {
 			reader = in
 		}
 	}
 
 	if outputFile != "" {
-		if out, e := os.OpenFile(outputFile, os.O_CREATE|os.O_RDWR, 0644); e == nil {
+		if out, err := os.OpenFile(outputFile, os.O_CREATE|os.O_RDWR, 0644); err != nil {
+			panic(err)
+		} else {
 			writer = out
 		}
 	}

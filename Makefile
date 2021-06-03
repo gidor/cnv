@@ -32,7 +32,7 @@ test: install_deps lint
 cli: install_deps
 	$(info ******************** building CLI ********************)
 	mkdir -p $(BIN)
-	go build -o $(BIN)/tr
+	go build -o $(BIN)/cnv
 
 install_deps:
 	$(info ******************** downloading dependencies ********************)

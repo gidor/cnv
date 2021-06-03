@@ -15,7 +15,7 @@ limitations under the License.
 */
 package main
 
-import "github.com/gidor/tr/cmd"
+import "github.com/gidor/cnv/cmd"
 
 func main() {
 	cmd.Execute()

@@ -1,4 +1,4 @@
-module github.com/gidor/tr
+module github.com/gidor/cnv
 
 go 1.16
 
