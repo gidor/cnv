@@ -24,13 +24,8 @@ import (
 // csv2yCmd represents the csv2y command
 var csv2yCmd = &cobra.Command{
 	Use:   "csv2y",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Short: "Convert csv data to yaml",
+	Long:  `Convert csv data to yaml to be done .`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("csv2y called")
 	},

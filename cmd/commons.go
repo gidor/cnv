@@ -4,7 +4,7 @@ Copyright © 2021 Gianni  Doria gianni.doria@gmail.com
 package cmd
 
 var (
-	ver        string = "1.0.0"
+	ver        string = "0.1.1"
 	prod       string = "cnv"
 	inputFile  string = ""
 	outputFile string = ""

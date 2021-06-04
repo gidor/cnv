@@ -16,9 +16,8 @@ import (
 // y2jCmd represents the y2j command
 var y2jCmd = &cobra.Command{
 	Use:   "y2j",
-	Short: "yaml to json translation",
-	Long: `yaml to json 
-	translation`,
+	Short: "Convert Yaml to Json ",
+	Long:  `Convert Yaml to Json `,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("y2j called")
 		yaml2json()

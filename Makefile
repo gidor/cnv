@@ -12,7 +12,7 @@ endif
 # .PHONY: fmt lint test tr_cli install_deps clean
 .PHONY: fmt lint cli install_deps clean
 
-default: all
+default: cli
 
 all: fmt test cli
 # all: fmt test tr_cli

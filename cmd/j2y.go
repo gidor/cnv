@@ -18,8 +18,8 @@ import (
 // j2yCmd represents the j2y command
 var j2yCmd = &cobra.Command{
 	Use:   "j2y",
-	Short: "Translate Jsont to Yaml",
-	Long:  `Translate Jsont to Yaml`,
+	Short: "Convert Json to Yaml",
+	Long:  `Convert Json to Yaml`,
 	Run: func(cmd *cobra.Command, args []string) {
 		// fmt.Println("j2y called")
 		json2yaml()
