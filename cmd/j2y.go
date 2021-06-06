@@ -1,5 +1,5 @@
 /*
-Copyright © 2021 Gianni  Doria gianni.doria@gmail.com
+Copyright © 2021 Gianni Doria (gianni.doria@gmail.com)
 */
 
 package cmd
