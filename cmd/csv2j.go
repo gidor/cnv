@@ -4,7 +4,9 @@ Copyright © 2021 Gianni Doria (gianni.doria@gmail.com)
 package cmd
 
 import (
-	"fmt"
+	"encoding/json"
+	"io"
+	"os"
 
 	"github.com/spf13/cobra"
 )
@@ -15,20 +17,53 @@ var csv2jCmd = &cobra.Command{
 	Short: "Convert csv data to json",
 	Long:  `Convert csv data to json to be done`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("csv2j called")
+		// fmt.Println("csv2j called")
+		csv2json()
 	},
 }
 
 func init() {
+
+	csv2jCmd.Flags().StringVarP(&inputFile, "input", "i", "", "Source File")
+	csv2jCmd.Flags().StringVarP(&outputFile, "output", "o", "", "Destination File")
+	csv2jCmd.Flags().BoolVarP(&pretty, "pretty", "p", false, "Pretty print indent")
+	csv2jCmd.Flags().BoolVar(&htmlescape, "html-escape", false, "Html Escape strings")
+
 	rootCmd.AddCommand(csv2jCmd)
+}
 
-	// Here you will define your flags and configuration settings.
+func csv2json() {
 
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// csv2jCmd.PersistentFlags().String("foo", "", "A help for foo")
+	// var _internal = &internal{}
+	// var _internal = make(internal)
 
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// csv2jCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	var reader io.ReadCloser = os.Stdin
+	var writer io.WriteCloser = os.Stdout
+
+	defer func() {
+		writer.Close()
+		reader.Close()
+	}()
+
+	if inputFile != "" {
+		if in, err := os.OpenFile(inputFile, os.O_RDONLY, 0755); err != nil {
+			panic(err)
+		} else {
+			reader = in
+		}
+
+	}
+	_internal := getcsv(reader)
+
+	encoder := json.NewEncoder(writer)
+	if pretty {
+		encoder.SetIndent("", "  ")
+	} else {
+		encoder.SetIndent("", "")
+	}
+	// set escape html
+	encoder.SetEscapeHTML(htmlescape)
+	if err := encoder.Encode(_internal); err != nil {
+		panic(err)
+	}
 }

@@ -1,0 +1,46 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  GREETING: Hello, World!
+  BIN: ./bin
+  SRC: '*.go'
+  CLI: cnv
+
+tasks:
+  fmt:
+    cmds:
+      - gofmt -l {{ .SRC }} || (gofmt -d $(SRC); exit 1)
+
+  lint:
+    cmds:
+      - golangci-lint run -v
+
+  test: 
+    deps: 
+      - install_deps 
+      - lint
+    cmds:
+      - richgo test -v ./...
+
+  cli: 
+    cmds:
+      - mkdir -p {{ .BIN }}
+      - go build -o {{ .BIN }}/{{ .CLI }}
+
+  install_deps:
+    cmds:
+      - go get -v ./...
+
+  clean:
+    cmds:
+      - rm -rf {{ .BIN }}
+  default:
+    deps:
+      - cli
+    cmds:
+      # - task -l
+      - echo "{{.GREETING}}"
+
+    silent: true

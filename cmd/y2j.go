@@ -27,6 +27,8 @@ var y2jCmd = &cobra.Command{
 func init() {
 	y2jCmd.Flags().StringVarP(&inputFile, "input", "i", "", "Source File")
 	y2jCmd.Flags().StringVarP(&outputFile, "output", "o", "", "Destination File")
+	y2jCmd.Flags().BoolVarP(&pretty, "pretty", "p", false, "Pretty print indent")
+	y2jCmd.Flags().BoolVar(&htmlescape, "html-escape", false, "Html Escape strings")
 
 	rootCmd.AddCommand(y2jCmd)
 
@@ -64,7 +66,15 @@ func yaml2json() {
 		panic(err)
 	}
 
-	if err := json.NewEncoder(writer).Encode(_internal); err != nil {
+	encoder := json.NewEncoder(writer)
+	if pretty {
+		encoder.SetIndent("", "  ")
+	} else {
+		encoder.SetIndent("", "")
+	}
+	// set escape
+	encoder.SetEscapeHTML(htmlescape)
+	if err := encoder.Encode(_internal); err != nil {
 		panic(err)
 	}
 }

@@ -21,10 +21,10 @@ var rootCmd = &cobra.Command{
 	Use:   "cnv",
 	Short: "format translation",
 	Long: `
-     ___ _ ____   __
-    / __| '_ \ \ / /
-   | (__| | | \ V / 
-    \___|_| |_|\_/ 
+     _________ _   __  
+    / ___/ __ \ | / /  
+   / /__/ / / / |/ /   
+   \___/_/ /_/|___/    
 
 	Conversions between data formats.`,
 	// Uncomment the following line if your bare application

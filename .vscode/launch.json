@@ -12,7 +12,17 @@
             "args": [
                 "j2y",
                 "-i",
-                "test.json"
+                "example/test.json"
+            ],
+            "program": "${workspaceFolder}/main.go"
+        },
+        {
+            "name": "csv2j -i example/cities.csv",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "args": [
+                "csv2j" , "-i", "example/cities.csv"
             ],
             "program": "${workspaceFolder}/main.go"
         },
@@ -24,7 +34,7 @@
             "args": [
                 "j2y",
                 "-i",
-                "test.json",
+                "example/test.json",
                 "-o",
                 "otest.yml"
             ],
