@@ -11,7 +11,7 @@ import (
 )
 
 var (
-	ver        string = "0.1.1"
+	ver        string = "0.2.1"
 	prod       string = "cnv"
 	inputFile  string = ""
 	outputFile string = ""
