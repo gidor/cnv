@@ -4,13 +4,13 @@ Copyright © 2021 Gianni Doria (gianni.doria@gmail.com)
 package cmd
 
 import (
-	"encoding/json"
-	"fmt"
 	"io"
 	"os"
 
+	"github.com/gidor/cnv/cnv/json"
+	"github.com/gidor/cnv/cnv/yaml"
+
 	"github.com/spf13/cobra"
-	"gopkg.in/yaml.v3"
 )
 
 // y2jCmd represents the y2j command
@@ -19,7 +19,6 @@ var y2jCmd = &cobra.Command{
 	Short: "Convert Yaml to Json ",
 	Long:  `Convert Yaml to Json `,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("y2j called")
 		yaml2json()
 	},
 }
@@ -35,8 +34,6 @@ func init() {
 }
 
 func yaml2json() {
-
-	var _internal = &internal{}
 
 	var reader io.ReadCloser = os.Stdin
 	var writer io.WriteCloser = os.Stdout
@@ -62,19 +59,12 @@ func yaml2json() {
 		}
 	}
 
-	if err := yaml.NewDecoder(reader).Decode(_internal); err != nil {
+	data, err := yaml.Load(reader)
+	if err != nil {
 		panic(err)
 	}
-
-	encoder := json.NewEncoder(writer)
-	if pretty {
-		encoder.SetIndent("", "  ")
-	} else {
-		encoder.SetIndent("", "")
-	}
-	// set escape
-	encoder.SetEscapeHTML(htmlescape)
-	if err := encoder.Encode(_internal); err != nil {
+	err = json.Save(&data, writer, pretty, htmlescape)
+	if err != nil {
 		panic(err)
 	}
 }

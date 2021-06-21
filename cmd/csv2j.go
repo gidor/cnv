@@ -4,9 +4,11 @@ Copyright © 2021 Gianni Doria (gianni.doria@gmail.com)
 package cmd
 
 import (
-	"encoding/json"
 	"io"
 	"os"
+
+	"github.com/gidor/cnv/cnv/csv"
+	"github.com/gidor/cnv/cnv/json"
 
 	"github.com/spf13/cobra"
 )
@@ -53,17 +55,13 @@ func csv2json() {
 		}
 
 	}
-	_internal := getcsv(reader)
+	data, err := csv.Load(reader)
+	if err != nil {
 
-	encoder := json.NewEncoder(writer)
-	if pretty {
-		encoder.SetIndent("", "  ")
-	} else {
-		encoder.SetIndent("", "")
+		panic(err)
 	}
-	// set escape html
-	encoder.SetEscapeHTML(htmlescape)
-	if err := encoder.Encode(_internal); err != nil {
+
+	if err := json.Save(&data, writer, pretty, htmlescape); err != nil {
 		panic(err)
 	}
 }

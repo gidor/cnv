@@ -1,0 +1,10 @@
+array:
+    - value1
+    - value2
+    - value3
+hello: world
+"null": null
+object:
+    nested:
+        metadata:
+            name: json2yaml

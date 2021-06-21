@@ -8,10 +8,8 @@ import (
 	"io"
 	"os"
 
-	"encoding/json"
-
-	"gopkg.in/yaml.v3"
-
+	"github.com/gidor/cnv/cnv/json"
+	"github.com/gidor/cnv/cnv/yaml"
 	"github.com/spf13/cobra"
 )
 
@@ -29,14 +27,13 @@ var j2yCmd = &cobra.Command{
 func init() {
 	j2yCmd.Flags().StringVarP(&inputFile, "input", "i", "", "Source File")
 	j2yCmd.Flags().StringVarP(&outputFile, "output", "o", "", "Destination File")
+	j2yCmd.Flags().BoolVarP(&pretty, "pretty", "p", false, "Pretty print indent")
 
 	rootCmd.AddCommand(j2yCmd)
 
 }
 
 func json2yaml() {
-
-	var _internal = &internal{}
 
 	var reader io.ReadCloser = os.Stdin
 	var writer io.WriteCloser = os.Stdout
@@ -45,9 +42,7 @@ func json2yaml() {
 		writer.Close()
 		reader.Close()
 	}()
-	// cont := 1
-	// fmt.Printf("%d\n", cont)
-	// cont++
+
 	if inputFile != "" {
 		if in, e := os.OpenFile(inputFile, os.O_RDONLY, 0755); e != nil {
 			panic(e)
@@ -55,26 +50,19 @@ func json2yaml() {
 			reader = in
 		}
 	}
-	// fmt.Printf("%d\n", cont)
-	// cont++
 
 	if outputFile != "" {
 		if out, e := os.OpenFile(outputFile, os.O_CREATE|os.O_RDWR, 0644); e == nil {
 			writer = out
 		}
 	}
-	// fmt.Printf("%d\n", cont)
-	// cont++
-
-	if err := json.NewDecoder(reader).Decode(_internal); err != nil {
+	data, err := json.Load(reader)
+	if err != nil {
 		panic(err)
 	}
-	// fmt.Printf("%d\n", cont)
-	// cont++
-
-	if err := yaml.NewEncoder(writer).Encode(_internal); err != nil {
+	err = yaml.Save(&data, writer, true, false)
+	if err != nil {
 		panic(err)
 	}
-	// fmt.Printf("Fine %d\n", cont)
 
 }

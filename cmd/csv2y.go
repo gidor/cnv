@@ -19,8 +19,9 @@ import (
 	"io"
 	"os"
 
+	"github.com/gidor/cnv/cnv/csv"
+	"github.com/gidor/cnv/cnv/yaml"
 	"github.com/spf13/cobra"
-	"gopkg.in/yaml.v3"
 )
 
 // csv2yCmd represents the csv2y command
@@ -40,25 +41,16 @@ var csv2yCmd = &cobra.Command{
 func init() {
 	csv2yCmd.Flags().StringVarP(&inputFile, "input", "i", "", "Source File")
 	csv2yCmd.Flags().StringVarP(&outputFile, "output", "o", "", "Destination File")
+	csv2yCmd.Flags().BoolVarP(&pretty, "pretty", "p", false, "Pretty print indent")
 
 	rootCmd.AddCommand(csv2yCmd)
 
-	// Here you will define your flags and configuration settings.
-
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// csv2yCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// csv2yCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
 
 func csv2yaml() {
 
 	var reader io.ReadCloser = os.Stdin
 	var writer io.WriteCloser = os.Stdout
-
 	defer func() {
 		writer.Close()
 		reader.Close()
@@ -72,9 +64,12 @@ func csv2yaml() {
 		}
 
 	}
-	_internal := getcsv(reader)
+	data, err := csv.Load(reader)
+	if err != nil {
+		panic(err)
+	}
 
-	if err := yaml.NewEncoder(writer).Encode(_internal); err != nil {
+	if err := yaml.Save(&data, writer, pretty, false); err != nil {
 		panic(err)
 	}
 
