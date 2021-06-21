@@ -5,12 +5,13 @@ Conversions between data formats
 ```
 cnv --help
 
-     ___ _ ____   __
-    / __| '_ \ \ / /
-   | (__| | | \ V / 
-    \___|_| |_|\_/ 
 
-	Conversions between data formats.
+     _________ _   __  
+    / ___/ __ \ | / /  
+   / /__/ / / / |/ /   
+   \___/_/ /_/|___/    
+
+        Conversions between data formats.
 
 Usage:
   cnv [command]
