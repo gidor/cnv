@@ -47,14 +47,8 @@ func csv2json() {
 		reader.Close()
 	}()
 
-	if inputFile != "" {
-		if in, err := os.OpenFile(inputFile, os.O_RDONLY, 0755); err != nil {
-			panic(err)
-		} else {
-			reader = in
-		}
+	openioout(&reader, &writer)
 
-	}
 	data, err := csv.Load(reader)
 	if err != nil {
 

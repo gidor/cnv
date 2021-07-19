@@ -43,19 +43,8 @@ func json2yaml() {
 		reader.Close()
 	}()
 
-	if inputFile != "" {
-		if in, e := os.OpenFile(inputFile, os.O_RDONLY, 0755); e != nil {
-			panic(e)
-		} else {
-			reader = in
-		}
-	}
+	openioout(&reader, &writer)
 
-	if outputFile != "" {
-		if out, e := os.OpenFile(outputFile, os.O_CREATE|os.O_RDWR, 0644); e == nil {
-			writer = out
-		}
-	}
 	data, err := json.Load(reader)
 	if err != nil {
 		panic(err)

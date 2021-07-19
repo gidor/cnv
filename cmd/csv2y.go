@@ -51,19 +51,14 @@ func csv2yaml() {
 
 	var reader io.ReadCloser = os.Stdin
 	var writer io.WriteCloser = os.Stdout
+
 	defer func() {
 		writer.Close()
 		reader.Close()
 	}()
 
-	if inputFile != "" {
-		if in, err := os.OpenFile(inputFile, os.O_RDONLY, 0755); err != nil {
-			panic(err)
-		} else {
-			reader = in
-		}
+	openioout(&reader, &writer)
 
-	}
 	data, err := csv.Load(reader)
 	if err != nil {
 		panic(err)
