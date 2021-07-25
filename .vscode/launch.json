@@ -10,9 +10,18 @@
             "request": "launch",
             "mode": "debug",
             "args": [
-                "j2y",
-                "-i",
-                "example/test.json"
+                "file" ,
+                "-c", 
+                "config", 
+                "-n", 
+                "DB",  
+                "-m", 
+                "Nomedel geopkg di rilievo" ,
+                "-t", 
+                "geopkg di rilievo"
+                // "j2y",
+                // "-i",
+                // "example/test.json"
             ],
             "program": "${workspaceFolder}/main.go"
         },
