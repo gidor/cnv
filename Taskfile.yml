@@ -1,9 +1,7 @@
 # https://taskfile.dev
 
 version: '3'
-includes:
-  build: ./Taskfile_{{OS}}.yml
-  
+
 vars:
   GREETING: Hello, World!
   BIN: ./bin
