@@ -29,6 +29,11 @@ tasks:
       - mkdir -p {{ .BIN }}
       - go build -o {{ .BIN }}/{{ .CLI }}
 
+  wcli: 
+    cmds:
+      - mkdir -p {{ .BIN }}
+      - env GOOS=windows GOARCH=amd64 go build -o {{ .BIN }}/{{ .CLI }}.exe
+
   install_deps:
     cmds:
       - go get -v ./...
