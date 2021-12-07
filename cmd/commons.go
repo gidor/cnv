@@ -14,24 +14,38 @@ var (
 	prod       string = "cnv"
 	inputFile  string = ""
 	outputFile string = ""
+	outputDir  string = "."
+	desctype   string = "."
 	pretty     bool   = false
 	htmlescape bool   = false
 )
 
 func openioout(reader *io.ReadCloser, writer *io.WriteCloser) {
-	if inputFile != "" {
-		if in, err := os.OpenFile(inputFile, os.O_RDONLY, 0755); err != nil {
-			panic(err)
-		} else {
-			*reader = in
-		}
-	}
+	openin(reader)
+	// if inputFile != "" {
+	// 	if in, err := os.OpenFile(inputFile, os.O_RDONLY, 0755); err != nil {
+	// 		panic(err)
+	// 	} else {
+	// 		*reader = in
+	// 	}
+	// }
 
 	if outputFile != "" {
 		if out, err := os.Create(outputFile); err != nil {
 			panic(err)
 		} else {
 			*writer = out
+		}
+	}
+
+}
+
+func openin(reader *io.ReadCloser) {
+	if inputFile != "" {
+		if in, err := os.OpenFile(inputFile, os.O_RDONLY, 0755); err != nil {
+			panic(err)
+		} else {
+			*reader = in
 		}
 	}
 

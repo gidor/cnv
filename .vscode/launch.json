@@ -10,15 +10,9 @@
             "request": "launch",
             "mode": "debug",
             "args": [
-                "file" ,
-                "-c", 
-                "config", 
-                "-n", 
-                "DB",  
-                "-m", 
-                "Nomedel geopkg di rilievo" ,
-                "-t", 
-                "geopkg di rilievo"
+                "d2y",
+                "-i",
+                "example/H4461790550_1.TER",
                 // "j2y",
                 // "-i",
                 // "example/test.json"

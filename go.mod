@@ -17,6 +17,7 @@ require (
 	github.com/klauspost/cpuid v1.2.0 // indirect
 	github.com/kyoh86/richgo v0.3.6 // indirect
 	github.com/mitchellh/go-homedir v1.1.0
+	github.com/mitchellh/mapstructure v1.4.3 // indirect
 	github.com/shirou/gopsutil v0.0.0-20180427012116-c95755e4bcd7 // indirect
 	github.com/shirou/w32 v0.0.0-20160930032740-bb4de0191aa4 // indirect
 	github.com/spf13/cobra v1.1.3
