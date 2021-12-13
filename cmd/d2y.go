@@ -45,8 +45,6 @@ func init() {
 	d2yCmd.Flags().StringVarP(&inputFile, "input", "i", "", "Source File")
 	d2yCmd.Flags().StringVarP(&outputDir, "outdir", "o", "", "Destination Dir")
 	d2yCmd.Flags().StringVarP(&desctype, "type", "t", "", "Destination Dir")
-	d2yCmd.Flags().BoolVarP(&pretty, "pretty", "p", false, "Pretty print indent")
-	d2yCmd.Flags().BoolVar(&htmlescape, "html-escape", false, "Html Escape strings")
 
 	rootCmd.AddCommand(d2yCmd)
 
@@ -79,16 +77,8 @@ func d2y() {
 
 	openin(&reader)
 
-	var par cnv.Conversion
+	par := cnv.NewConversion(&reader, outputDir, "cnv.yaml", cnv.Yaml, desctype)
 
-	par.Reader = &reader
-	par.Outdir = outputDir
-	par.Cnvformat = cnv.Yaml
-	par.Filetype = desctype
-	par.Pretty = pretty
-	par.Htm_escape = htmlescape
-	par.Cfgname = "cnv.yaml"
-
-	delimted.Delimited(&par)
+	delimted.Delimited(par)
 
 }
