@@ -20,9 +20,10 @@ import (
 	"io"
 	"os"
 	"path"
+	"strings"
 
 	"github.com/gidor/cnv/cnv"
-	"github.com/gidor/cnv/cnv/delimted"
+
 	"github.com/spf13/cobra"
 )
 
@@ -45,6 +46,7 @@ func init() {
 	d2yCmd.Flags().StringVarP(&inputFile, "input", "i", "", "Source File")
 	d2yCmd.Flags().StringVarP(&outputDir, "outdir", "o", "", "Destination Dir")
 	d2yCmd.Flags().StringVarP(&desctype, "type", "t", "", "Destination Dir")
+	d2yCmd.Flags().StringVarP(&config, "config", "c", "", "Config File")
 
 	rootCmd.AddCommand(d2yCmd)
 
@@ -69,16 +71,20 @@ func d2y() {
 
 	if desctype == "" {
 		if inputFile != "" {
-			desctype = path.Ext(inputFile)
+			desctype = strings.Trim(path.Ext(inputFile), ".")
 		} else {
 			desctype = "--"
 		}
 	}
 
+	cfg := config
+	if cfg == "" {
+		cfg = "cnv.yaml"
+	}
 	openin(&reader)
 
-	par := cnv.NewConversion(&reader, outputDir, "cnv.yaml", cnv.Yaml, desctype)
-
-	delimted.Delimited(par)
+	par := cnv.NewConversion(&reader, outputDir, cfg, cnv.Yaml, desctype)
+	// par.Print()
+	par.Execute()
 
 }

@@ -7,7 +7,7 @@ type JValue interface{}
 
 type Meta map[string]JValue
 
-type Format int8
+type Format uint8
 
 const (
 	Csv  Format = iota // Csv
@@ -28,12 +28,15 @@ func (c Format) AsString() string {
 	}
 }
 
-type Encoding int8
+type Encoding uint8
 
 const (
 	Delimited Encoding = iota
 	Fixlength Encoding = iota
+	Named     Encoding = iota
 )
+
+type WriteHandler func(ch chan (map[string]interface{}), cnv Execution, prefix string, suffix string)
 
 func (c Encoding) AsString() string {
 	switch c {
@@ -45,3 +48,8 @@ func (c Encoding) AsString() string {
 		return "Unkwon"
 	}
 }
+
+const (
+	__sequence__ = "__sequence__"
+	__values__   = "__values__"
+)

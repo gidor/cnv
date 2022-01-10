@@ -12,8 +12,10 @@ import (
 var (
 	ver        string = "0.2.3"
 	prod       string = "cnv"
-	inputFile  string = ""
-	outputFile string = ""
+	inputFile  string
+	outputFile string
+	config     string
+	delimiter  string
 	outputDir  string = "."
 	desctype   string = "."
 	pretty     bool   = false

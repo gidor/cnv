@@ -7,13 +7,13 @@ import (
 	"github.com/gidor/cnv/cnv"
 )
 
-func Delimited(conversion *cnv.Conversion) {
+func Delimited(execution *cnv.Execution) {
 
 	// err := mapstructure.Decode(files, &cfg)
 	// if err != nil {
 	// 	fmt.Printf("%+v", err)
 	// }
-	conversion.Print()
+	execution.Print()
 
 	// fmt.Printf("%+v", files)
 }

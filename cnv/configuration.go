@@ -8,53 +8,66 @@ import (
 	"errors"
 	"fmt"
 	"os"
+	"strings"
 )
 
-type Check struct {
-	Field int    `yaml:"field"`
-	Name  string `yaml:"name"`
-	Value string `yaml:"is"`
-}
-
-type RecCheck struct {
-	Or  []Check `yaml:"or"`
-	And []Check `yaml:"and"`
-}
-
-type FieldDesc struct {
-	Name      string `yaml:"name"`
-	Seq       string `yaml:"seq"`
-	Parsetype string `yaml:"parsetype"`
-	Len       int16  `yaml:"len"`
-	Start     int16  `yaml:"start"`
-	Note      string `yaml:"note"`
-}
-
-type Output struct {
-	Name       string              `yaml:"name"`
-	Prefix     string              `yaml:"prefix"`
-	Suffix     string              `yaml:"suffix"`
-	Mappings   []map[string]string `yaml:"mappings"`
-	conversion *Conversion
-}
-
-func (o *Output) init(cnv *Conversion) {
-	o.conversion = cnv
-}
-
-type Record struct {
-	Name       string
-	When       RecCheck
-	Fields     []FieldDesc
-	Out        []Output
-	conversion *Conversion
-}
-
-func (r *Record) init(cnv *Conversion) {
-	r.conversion = cnv
-	for _, o := range r.Out {
-		o.init(cnv)
+// get fixed length filed from string usngi 1 based index
+func field_at(record string, start int, length int) (string, error) {
+	var err error
+	if start > len(record) {
+		err = errors.New("start > of record length ")
+		return "", err
 	}
+	start = start - 1
+	end := start + length
+
+	if start < 0 {
+		err = errors.New("start < 1 ")
+		return "", err
+	}
+	if (end) > len(record) {
+		err = errors.New("start + len > of record length ")
+		return record[start:], err
+	}
+	ret := record[start:end]
+	return ret, err
+}
+
+// filed at  using zero based index
+func field_at_0b(record string, start int, length int) (string, error) {
+	var err error
+	if start > len(record) {
+		err = errors.New("start > of record length ")
+		return "", err
+	}
+	end := start + length
+
+	if start < 0 {
+		err = errors.New("start < 0 ")
+		return "", err
+	}
+	if end > len(record) {
+		err = errors.New("start + len > of record length ")
+		return record[start:], err
+	}
+	ret := record[start:end]
+	return ret, err
+}
+
+// get fileds from tokens slice using 1 based index
+func field_seq(fields []string, seq int) (string, error) {
+	var err error
+	if seq > len(fields) {
+		err = errors.New("seq > num fileds")
+		return "", err
+	}
+	seq = seq - 1
+	if seq < 0 {
+		err = errors.New("seq < 1")
+		return "", err
+	}
+	ret := fields[seq]
+	return ret, err
 }
 
 type Input struct {
@@ -65,47 +78,57 @@ type Input struct {
 	Quote       string
 	Quoted      bool
 	Multirecord bool
-	Recordstype []Record
-	conversion  *Conversion
-	line string
-	tokens []string
+	Recordstype []*Record
+	execution   *Execution
+	delimited   bool
+	line        string
+	tokens      []string
 }
 
-func (i *Input) init(cnv *Conversion) {
-	i.conversion = cnv
+func (i *Input) init(cnv *Execution) {
+	i.Delimiter = strings.Trim(i.Delimiter, " ")
+	if len(i.Delimiter) > 0 {
+		i.delimited = true
+	}
+	i.execution = cnv
 	for _, r := range i.Recordstype {
 		r.init(cnv)
 	}
 }
 
 func (i *Input) parse() {
-	if i.conversion == nil {
-		i.conversion.lasterr = errors.New("cannot parese if conversion is not set")
+	if i.execution == nil {
+		i.execution.lasterr = errors.New("cannot parese if execution is not set")
 		return
 	}
-	scanner := bufio.NewScanner(*i.conversion.Reader)
+	scanner := bufio.NewScanner(*i.execution.Reader)
 	scanner.Split(bufio.ScanLines)
 	for scanner.Scan() {
 		i.line = scanner.Text()
-		if i.Delimiter{
-			i.tokens= i.line
-		} 
+		if i.delimited {
+			i.tokens = strings.Split(i.line, i.Delimiter)
+		}
+		for _, rt := range i.Recordstype {
+			if rt.check(i) {
+				rt.convert(i)
+			}
+		}
+
 	}
 	if err := scanner.Err(); err != nil {
-		fmt.Fprintln(os.Stderr, "reading standard input:", err)
+		i.execution.lasterr = err
+		fmt.Fprintln(os.Stderr, "reading input:", err)
 	}
-
-	scanne
-
 }
 
 type Configuration struct {
-	Files      []Input `yaml:",flow"`
-	conversion *Conversion
+	Params    map[string]string
+	Files     []*Input `yaml:",flow"`
+	execution *Execution
 }
 
-func (c *Configuration) init(cnv *Conversion) {
-	c.conversion = cnv
+func (c *Configuration) init(cnv *Execution) {
+	c.execution = cnv
 	// for _, i := range c.Files {
 	// 	i.init(cnv)
 	// }
@@ -114,8 +137,8 @@ func (c *Configuration) init(cnv *Conversion) {
 func (c *Configuration) parse() {
 
 	for _, i := range c.Files {
-		if i.Filetype == c.conversion.Filetype {
-			i.init(c.conversion)
+		if i.Filetype == c.execution.Filetype {
+			i.init(c.execution)
 			i.parse()
 		}
 	}

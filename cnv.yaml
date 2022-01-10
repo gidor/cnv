@@ -1,3 +1,9 @@
+params:
+  delimiter: "|"
+  dateformat__: 2006/01/02
+  dateformat_: "20060102"
+  dateformat: "2006-01-02T15:04:05Z07:00"
+  nulrender: /N
 files:
   - name: FAB
     extension: FAB
@@ -15,284 +21,332 @@ files:
         fields:
           - seq: 1
             name: CODICE_COMUNE
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 2
             name: SEZIONE
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: tabella Sezioni censuarie
           - seq: 3
             name: ID_IMMOBILE
-            parsetype: numerico
+            parsetype: numeric
             len: 9
             note: Progressivo dell’immobile nella banca dati
           - seq: 4
             name: TIPO_IMMOBILE
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: Assume valore fisso F (fabbricati)
           - seq: 5
             name: PROGRESSIVO
-            parsetype: numerico
+            parsetype: numeric
             len: 3
             note: (stadio)
           - seq: 6
             name: TIPORECORD
-            parsetype: numerico
+            parsetype: numeric
             len: 1
             note: valore fisso 1
           - seq: 7
             name: ZONA
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note:
           - seq: 8
             name: CATEGORIA
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note:
           - seq: 9
             name: CLASSE
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note:
           - seq: 10
             name: CONSISTENZA
-            parsetype: numerico
+            parsetype: decimal
             len: 7
             note:
           - seq: 11
             name: SUPERFICIE
-            parsetype: numerico
+            parsetype: decimal
             len: 5
             note:
           - seq: 12
             name: RENDITA_LIRE
-            parsetype: numerico
+            parsetype: decimal
             len: 15
           - seq: 13
             name: RENDITA_EURO
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 18
             note: gli ultimi 3 caratteri sono decimali
           - seq: 14
             name: LOTTO
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note:
           - seq: 15
             name: EDIFICIO
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note:
           - seq: 16
             name: SCALA
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note:
           - seq: 17
             name: INTERNO_1
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note:
           - seq: 18
             name: INTERNO_2
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note:
           - seq: 19
             name: PIANO_1
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 20
             name: PIANO_2
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 21
             name: PIANO_3
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 22
             name: PIANO_4
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 22
             name: INI_D_EFFICACIA
-            parsetype: numerico
+            parsetype: DATE(GGMMAAAA)
             len: 8
-            note: formato GGMMAAAA
+            note: DATE(GGMMAAAA)
           - seq: 23
             name: INI_D_REGISTRAZIONE
-            parsetype: numerico
+            parsetype: DATE(GGMMAAAA)
             len: 8
-            note: formato GGMMAAAA
+            note: DATE(GGMMAAAA)
           - seq: 24
             name: INI_TIPO_NOTA
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note:
           - seq: 25
             name: INI_NUMERO_NOTA
-            parsetype: alfanumerico
+            parsetype: string
             len: 6
             note: .
           - seq: 26
             name: INI_PROGRESSIVO_NOTA
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note: .
           - seq: 27
             name: INI_ANNO_NOTA
-            parsetype: numerico
+            parsetype: numeric
             len: 4
             note: .
           - seq: 28
             name: FIN_D_EFFICACIA
-            parsetype: numerico
+            parsetype: DATE(GGMMAAAA)
             len: 8
-            note: formato GGMMAAAA
+            note: DATE(GGMMAAAA)
           - seq: 29
             name: FIN_D_REGISTRAZIONE
-            parsetype: DDMMYYYY
+            parsetype: DATE(GGMMAAAA)
             len: 8
-            note: formato GGMMAAAA
+            note: DATE(GGMMAAAA)
           - seq: 30
             name: FIN_TIPO_NOTA
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note:
           - seq: 31
             name: FIN_NUMERO_NOTA
-            parsetype: alfanumerico
+            parsetype: string
             len: 6
             note: .
           - seq: 32
             name: FIN_PROGRESSIVO_NOTA
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note: .
           - seq: 33
             name: FIN_ANNO_NOTA
-            parsetype: numerico
+            parsetype: numeric
             len: 4
             note: .
           - seq: 34
             name: PARTITA
             parsetype: alfa
             len: 7
-            note: alfanumericoInformazioni aggiuntive sulle caratteristiche dell’immobile
+            note: stringInformazioni aggiuntive sulle caratteristiche dell’immobile
           - seq: 35
             name: ANNOTAZIONE
-            parsetype: alfanumerico
+            parsetype: string
             len: 200
             note:
           - seq: 36
             name: ID_MUTAZIONE_INI
-            parsetype: numerico
+            parsetype: numeric
             len: 9
             note:
           - seq: 37
             name: ID_MUTAZIONE_FIN
-            parsetype: numerico
+            parsetype: numeric
             len: 9
             note:
           - seq: 38
             name: PROT_NOTIFICA
-            parsetype: alfanumerico
+            parsetype: string
             len: 18
             note: numero di protocollo della notifica di classamento)
           - seq: 39
             name: D_NOTIFICA
-            parsetype: numerico
+            parsetype: DATE(GGMMAAAA)
             len: 8
-            note: formato GGMMAAAA (numero di protocollo della notifica di classamento)
+            note: DATE(GGMMAAAA) (numero di protocollo della notifica di classamento)
           - seq: 40
             name: INI_CODICE_CAUSALE
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note:
           - seq: 41
             name: INI_DESCRIZIONE
-            parsetype: alfanumerico
+            parsetype: string
             len: 100
             note:
           - seq: 42
             name: FIN_CODICE_CAUSALE
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note:
           - seq: 43
             name: FIN_DESCRIZIONE
-            parsetype: alfanumerico
+            parsetype: string
             len: 100
             note:
           - seq: 44
             name: FLAG_CLASSAMENTO
-            parsetype: numerico
+            parsetype: numeric
             len: 1
             note:
-        out:
+        output:
           - name: uiu
             prefix:
             suffix: _uiu
             mappings:
               - 
-                cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                zona: ZONA
-                categoria: CATEGORIA
-                classe: CLASSE
-                consistenza: CONSISTENZA
-                superficie: SUPERFICIE
-                rendita_l: RENDITA-LIRE
-                rendita_e: RENDITA-EURO
-                id_mutazione_ini: ID_MUTAZIONE_INI
-                id_mutazione_fin: ID_MUTAZIONE_FIN
-                partita: PARTITA
-                annotazioni: ANNOTAZIONE
-                prot_notifica: PROT_NOTIFICA
-                d_notifrica: D_NOTIFICA
-                classamento: FLAG_CLASSAMENTO
-                loto: LOTTO
-                edificio: EDIFICIO
-                scala: SCALA
-                interno_1: INTERNO_1
-                interno_2: INTERNO_2
-                piano_1: PIANO_1
-                piano_2: PIANO_2
-                piano_3: PIANO_3
-                piano_4: PIANO_4
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: zona
+                  alias: ZONA
+                - name: categoria
+                  alias: CATEGORIA
+                - name: classe
+                  alias: CLASSE
+                - name: consistenza
+                  alias: CONSISTENZA
+                - name: superficie
+                  alias: SUPERFICIE
+                - name: rendita_l
+                  alias: RENDITA-LIRE
+                - name: rendita_e
+                  alias: RENDITA-EURO
+                - name: id_mutazione_ini
+                  alias: ID_MUTAZIONE_INI
+                - name: id_mutazione_fin
+                  alias: ID_MUTAZIONE_FIN
+                - name: partita
+                  alias: PARTITA
+                - name: annotazioni
+                  alias: ANNOTAZIONE
+                - name: prot_notifica
+                  alias: PROT_NOTIFICA
+                - name: d_notifrica
+                  alias: D_NOTIFICA
+                - name: classamento
+                  alias: FLAG_CLASSAMENTO
+                - name: loto
+                  alias: LOTTO
+                - name: edificio
+                  alias: EDIFICIO
+                - name: scala
+                  alias: SCALA
+                - name: interno_1
+                  alias: INTERNO_1
+                - name: interno_2
+                  alias: INTERNO_2
+                - name: piano_1
+                  alias: PIANO_1
+                - name: piano_2
+                  alias: PIANO_2
+                - name: piano_3
+                  alias: PIANO_3
+                - name: piano_4
+                  alias: PIANO_4
           - name: mutazioni
             prefix:
             suffix: _mutazioni
             mappings:
-              - id_mutazione: ID_MUTAZIONE_INI
-                d_efficacia: INI_D_EFFICACIA
-                d_registrazione: INI_D_REGISTRAZIONE
-                tipo_nota: INI_TIPO_NOTA
-                numero_nota: INI_NUMERO_NOTA
-                progressivo_nota: INI_PROGRESSIVO_NOTA
-                anno_nota: INI_ANNO_NOTA
-                codice_causale: INI_CODICE_CAUSALE
-                descrizione: INI_DESCRIZIONE
-              - id_mutazione_fin: ID_MUTAZIONE_FIN
-                d_efficacia: FIN_D_EFFICACIA
-                d_registrazione: FIN_D_REGISTRAZIONE
-                tipo_nota: FIN_TIPO_NOTA
-                numero_nota: FIN_NUMERO_NOTA
-                progressivo_nota: FIN_PROGRESSIVO_NOTA
-                anno_nota: FIN_ANNO_NOTA
-                codice_causale: FIN_CODICE_CAUSALE
-                descrizione: FIN_DESCRIZIONE
+              - 
+                - name: id_mutazione
+                  alias: ID_MUTAZIONE_INI
+                - name: d_efficacia
+                  alias: INI_D_EFFICACIA
+                - name: d_registrazione
+                  alias: INI_D_REGISTRAZIONE
+                - name: tipo_nota
+                  alias: INI_TIPO_NOTA
+                - name: numero_nota
+                  alias: INI_NUMERO_NOTA
+                - name: progressivo_nota
+                  alias: INI_PROGRESSIVO_NOTA
+                - name: anno_nota
+                  alias: INI_ANNO_NOTA
+                - name: codice_causale
+                  alias: INI_CODICE_CAUSALE
+                - name: descrizione
+                  alias: INI_DESCRIZIONE
+              - 
+                - name: id_mutazione
+                  alias: ID_MUTAZIONE_FIN
+                - name: d_efficacia
+                  alias: FIN_D_EFFICACIA
+                - name: d_registrazione
+                  alias: FIN_D_REGISTRAZIONE
+                - name: tipo_nota
+                  alias: FIN_TIPO_NOTA
+                - name: numero_nota
+                  alias: FIN_NUMERO_NOTA
+                - name: progressivo_nota
+                  alias: FIN_PROGRESSIVO_NOTA
+                - name: anno_nota
+                  alias: FIN_ANNO_NOTA
+                - name: codice_causale
+                  alias: FIN_CODICE_CAUSALE
+                - name: descrizione
+                  alias: FIN_DESCRIZIONE
       - name: id_uiu
         when:
           or:
@@ -301,459 +355,569 @@ files:
         fields:
           - seq: 1
             name: CODICE_COMUNE
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 2
             name: SEZIONE
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: tabella Sezioni censuarie
           - seq: 3
             name: ID_IMMOBILE
-            parsetype: numerico
+            parsetype: numeric
             len: 9
             note: Progressivo dell’immobile nella banca dati
           - seq: 4
             name: TIPO_IMMOBILE
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: Assume valore fisso F (fabbricati)
           - seq: 5
             name: PROGRESSIVO
-            parsetype: numerico
+            parsetype: numeric
             len: 3
             note: (stadio)
           - seq: 6
             name: TIPORECORD
-            parsetype: numerico
+            parsetype: numeric
             len: 1
             note: valore fisso 2
           - seq: 7
             name: SEZIONEURBANA_1
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note: 1 TABELLA IDENTIFICATIVI (max 10 elementi)
           - seq: 8
             name: FOGLIO_1
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 9
             name: NUMERO_1
-            parsetype: alfanumerico
+            parsetype: string
             len: 5
             note:
           - seq: 1
             name: DENOMINATORE_1
-            parsetype: numerico
+            parsetype: numeric
             len: 4
             note:
           - seq: 11
             name: SUBALTERNO_1
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 12
             name: EDIFICIALITA_1
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note:
           - seq: 13
             name: SEZIONEURBANA_2
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note: 2 TABELLA IDENTIFICATIVI (max 10 elementi)
           - seq: 14
             name: FOGLIO_2
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 15
             name: NUMERO_2
-            parsetype: alfanumerico
+            parsetype: string
             len: 5
             note:
           - seq: 16
             name: DENOMINATORE_2
-            parsetype: numerico
+            parsetype: numeric
             len: 4
             note:
           - seq: 17
             name: SUBALTERNO_2
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 18
             name: EDIFICIALITA_2
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note:
           - seq: 19
             name: SEZIONEURBANA_3
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note: 3 TABELLA IDENTIFICATIVI (max 10 elementi)
           - seq: 20
             name: FOGLIO_3
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 21
             name: NUMERO_3
-            parsetype: alfanumerico
+            parsetype: string
             len: 5
             note:
           - seq: 22
             name: DENOMINATORE_3
-            parsetype: numerico
+            parsetype: numeric
             len: 4
             note:
           - seq: 23
             name: SUBALTERNO_3
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 24
             name: EDIFICIALITA_3
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note:
           - seq: 25
             name: SEZIONEURBANA_4
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note: 4 TABELLA IDENTIFICATIVI (max 10 elementi)
           - seq: 26
             name: FOGLIO_4
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 27
             name: NUMERO_4
-            parsetype: alfanumerico
+            parsetype: string
             len: 5
             note:
           - seq: 28
             name: DENOMINATORE_4
-            parsetype: numerico
+            parsetype: numeric
             len: 4
             note:
           - seq: 29
             name: SUBALTERNO_4
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 30
             name: EDIFICIALITA_4
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note:
           - seq: 31
             name: SEZIONEURBANA_5
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note: 5 TABELLA IDENTIFICATIVI (max 10 elementi)
           - seq: 32
             name: FOGLIO_5
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 33
             name: NUMERO_5
-            parsetype: alfanumerico
+            parsetype: string
             len: 5
             note:
           - seq: 34
             name: DENOMINATORE_5
-            parsetype: numerico
+            parsetype: numeric
             len: 4
             note:
           - seq: 35
             name: SUBALTERNO_5
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 36
             name: EDIFICIALITA_5
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note:
           - seq: 37
             name: SEZIONEURBANA_6
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note: 6 TABELLA IDENTIFICATIVI (max 10 elementi)
           - seq: 38
             name: FOGLIO_6
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 39
             name: NUMERO_6
-            parsetype: alfanumerico
+            parsetype: string
             len: 5
             note:
           - seq: 40
             name: DENOMINATORE_6
-            parsetype: numerico
+            parsetype: numeric
             len: 4
             note:
           - seq: 41
             name: SUBALTERNO_6
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 42
             name: EDIFICIALITA_6
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note:
           - seq: 43
             name: SEZIONEURBANA_7
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note: 7 TABELLA IDENTIFICATIVI (max 10 elementi)
           - seq: 44
             name: FOGLIO_7
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 45
             name: NUMERO_7
-            parsetype: alfanumerico
+            parsetype: string
             len: 5
             note:
           - seq: 46
             name: DENOMINATORE_7
-            parsetype: numerico
+            parsetype: numeric
             len: 4
             note:
           - seq: 47
             name: SUBALTERNO_7
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 48
             name: EDIFICIALITA_7
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note:
           - seq: 49
             name: SEZIONEURBANA_8
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note: 8 TABELLA IDENTIFICATIVI (max 10 elementi)
           - seq: 50
             name: FOGLIO_8
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 51
             name: NUMERO_8
-            parsetype: alfanumerico
+            parsetype: string
             len: 5
             note:
           - seq: 52
             name: DENOMINATORE_8
-            parsetype: numerico
+            parsetype: numeric
             len: 4
             note:
           - seq: 53
             name: SUBALTERNO_8
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 54
             name: EDIFICIALITA_8
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note:
           - seq: 55
             name: SEZIONEURBANA_9
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note: 9 TABELLA IDENTIFICATIVI (max 10 elementi)
           - seq: 56
             name: FOGLIO_9
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 57
             name: NUMERO_9
-            parsetype: alfanumerico
+            parsetype: string
             len: 5
             note:
           - seq: 58
             name: DENOMINATORE_9
-            parsetype: numerico
+            parsetype: numeric
             len: 4
             note:
           - seq: 59
             name: SUBALTERNO_9
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 60
             name: EDIFICIALITA_9
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note:
           - seq: 61
             name: SEZIONEURBANA_10
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note: 10 TABELLA IDENTIFICATIVI (max 10 elementi)
           - seq: 62
             name: FOGLIO_10
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 63
             name: NUMERO_10
-            parsetype: alfanumerico
+            parsetype: string
             len: 5
             note:
           - seq: 64
             name: DENOMINATORE_10
-            parsetype: numerico
+            parsetype: numeric
             len: 4
             note:
           - seq: 65
             name: SUBALTERNO_10
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 66
             name: EDIFICIALITA_10
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note:
-        out:
+        output:
           - name: id_uiu
             prefix:
             suffix: _iduiu
             mappings:
               -
-                cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                sezione: SEZIONEURBANA_1
-                foglio: FOGLIO_1
-                numero: NUMERO_1
-                denominatore: DENOMINATORE_1
-                subalterno: SUBALTERNO_1
-                edificialita: EDIFICIALITA_1
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: sezione
+                  alias: SEZIONEURBANA_1
+                - name: foglio
+                  alias: FOGLIO_1
+                - name: numero
+                  alias: NUMERO_1
+                - name: denominatore
+                  alias: DENOMINATORE_1
+                - name: subalterno
+                  alias: SUBALTERNO_1
+                - name: edificialita
+                  alias: EDIFICIALITA_1
               -
-                cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                sezione: SEZIONEURBANA_2
-                foglio: FOGLIO_2
-                numero: NUMERO_2
-                denominatore: DENOMINATORE_2
-                subalterno: SUBALTERNO_2
-                edificialita: EDIFICIALITA_2
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: sezione
+                  alias: SEZIONEURBANA_2
+                - name: foglio
+                  alias: FOGLIO_2
+                - name: numero
+                  alias: NUMERO_2
+                - name: denominatore
+                  alias: DENOMINATORE_2
+                - name: subalterno
+                  alias: SUBALTERNO_2
+                - name: edificialita
+                  alias: EDIFICIALITA_2
               -
-                cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                sezione: SEZIONEURBANA_3
-                foglio: FOGLIO_3
-                numero: NUMERO_3
-                denominatore: DENOMINATORE_3
-                subalterno: SUBALTERNO_3
-                edificialita: EDIFICIALITA_3
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: sezione
+                  alias: SEZIONEURBANA_3
+                - name: foglio
+                  alias: FOGLIO_3
+                - name: numero
+                  alias: NUMERO_3
+                - name: denominatore
+                  alias: DENOMINATORE_3
+                - name: subalterno
+                  alias: SUBALTERNO_3
+                - name: edificialita
+                  alias: EDIFICIALITA_3
               -
-                cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                sezione: SEZIONEURBANA_4
-                foglio: FOGLIO_4
-                numero: NUMERO_4
-                denominatore: DENOMINATORE_4
-                subalterno: SUBALTERNO_4
-                edificialita: EDIFICIALITA_4
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: sezione
+                  alias: SEZIONEURBANA_4
+                - name: foglio
+                  alias: FOGLIO_4
+                - name: numero
+                  alias: NUMERO_4
+                - name: denominatore
+                  alias: DENOMINATORE_4
+                - name: subalterno
+                  alias: SUBALTERNO_4
+                - name: edificialita
+                  alias: EDIFICIALITA_4
               -
-                cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                sezione: SEZIONEURBANA_5
-                foglio: FOGLIO_5
-                numero: NUMERO_5
-                denominatore: DENOMINATORE_5
-                subalterno: SUBALTERNO_5
-                edificialita: EDIFICIALITA_5
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: sezione
+                  alias: SEZIONEURBANA_5
+                - name: foglio
+                  alias: FOGLIO_5
+                - name: numero
+                  alias: NUMERO_5
+                - name: denominatore
+                  alias: DENOMINATORE_5
+                - name: subalterno
+                  alias: SUBALTERNO_5
+                - name: edificialita
+                  alias: EDIFICIALITA_5
               -
-                cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                sezione: SEZIONEURBANA_6
-                foglio: FOGLIO_6
-                numero: NUMERO_6
-                denominatore: DENOMINATORE_6
-                subalterno: SUBALTERNO_6
-                edificialita: EDIFICIALITA_6
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: sezione
+                  alias: SEZIONEURBANA_6
+                - name: foglio
+                  alias: FOGLIO_6
+                - name: numero
+                  alias: NUMERO_6
+                - name: denominatore
+                  alias: DENOMINATORE_6
+                - name: subalterno
+                  alias: SUBALTERNO_6
+                - name: edificialita
+                  alias: EDIFICIALITA_6
               -
-                cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                sezione: SEZIONEURBANA_7
-                foglio: FOGLIO_7
-                numero: NUMERO_7
-                denominatore: DENOMINATORE_7
-                subalterno: SUBALTERNO_7
-                edificialita: EDIFICIALITA_7
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: sezione
+                  alias: SEZIONEURBANA_7
+                - name: foglio
+                  alias: FOGLIO_7
+                - name: numero
+                  alias: NUMERO_7
+                - name: denominatore
+                  alias: DENOMINATORE_7
+                - name: subalterno
+                  alias: SUBALTERNO_7
+                - name: edificialita
+                  alias: EDIFICIALITA_7
               -
-                cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                sezione: SEZIONEURBANA_8
-                foglio: FOGLIO_8
-                numero: NUMERO_8
-                denominatore: DENOMINATORE_8
-                subalterno: SUBALTERNO_8
-                edificialita: EDIFICIALITA_8
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: sezione
+                  alias: SEZIONEURBANA_8
+                - name: foglio
+                  alias: FOGLIO_8
+                - name: numero
+                  alias: NUMERO_8
+                - name: denominatore
+                  alias: DENOMINATORE_8
+                - name: subalterno
+                  alias: SUBALTERNO_8
+                - name: edificialita
+                  alias: EDIFICIALITA_8
               -
-                cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                sezione: SEZIONEURBANA_9
-                foglio: FOGLIO_9
-                numero: NUMERO_9
-                denominatore: DENOMINATORE_9
-                subalterno: SUBALTERNO_9
-                edificialita: EDIFICIALITA_9
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: sezione
+                  alias: SEZIONEURBANA_9
+                - name: foglio
+                  alias: FOGLIO_9
+                - name: numero
+                  alias: NUMERO_9
+                - name: denominatore
+                  alias: DENOMINATORE_9
+                - name: subalterno
+                  alias: SUBALTERNO_9
+                - name: edificialita
+                  alias: EDIFICIALITA_9
               -
-                cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                sezione: SEZIONEURBANA_10
-                foglio: FOGLIO_10
-                numero: NUMERO_10
-                denominatore: DENOMINATORE_10
-                subalterno: SUBALTERNO_10
-                edificialita: EDIFICIALITA_10
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: sezione
+                  alias: SEZIONEURBANA_10
+                - name: foglio
+                  alias: FOGLIO_10
+                - name: numero
+                  alias: NUMERO_10
+                - name: denominatore
+                  alias: DENOMINATORE_10
+                - name: subalterno
+                  alias: SUBALTERNO_10
+                - name: edificialita
+                  alias: EDIFICIALITA_10
       - name: indirizzi_uiu
         when:
           or:
@@ -762,203 +926,251 @@ files:
         fields:
           - seq: 1
             name: CODICE_COMUNE
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 2
             name: SEZIONE
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: tabella Sezioni censuarie
           - seq: 3
             name: ID_IMMOBILE
-            parsetype: numerico
+            parsetype: numeric
             len: 9
             note: Progressivo dell’immobile nella banca dati
           - seq: 4
             name: TIPO_IMMOBILE
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: Assume valore fisso F (fabbricati)
           - seq: 5
             name: PROGRESSIVO
-            parsetype: numerico
+            parsetype: numeric
             len: 3
             note: (stadio)
           - seq: 6
             name: TIPORECORD
-            parsetype: numerico
+            parsetype: numeric
             len: 1
             note: valore fisso 3
           - seq: 7
             name: TOPONIMO_1
-            parsetype: numerico
+            parsetype: numeric
             len: 3
             note: 1 TABELLA INDIRIZZI (4 elementi)
           - seq: 8
             name: INDIRIZZO_1
-            parsetype: alfanumerico
+            parsetype: string
             len: 50
             note:
           - seq: 9
             name: CIVICO_1_1
-            parsetype: alfanumerico
+            parsetype: string
             len: 6
             note:
           - seq: 10
             name: CIVICO_2_1
-            parsetype: alfanumerico
+            parsetype: string
             len: 6
             note:
           - seq: 11
             name: CIVICO_3_1
-            parsetype: alfanumerico
+            parsetype: string
             len: 6
             note:
           - seq: 12
             name: CODICE_STRADA_1
-            parsetype: numerico
+            parsetype: numeric
             len:
             note:
           - seq: 13
             name: TOPONIMO_2
-            parsetype: numerico
+            parsetype: numeric
             len: 3
             note: 2 TABELLA INDIRIZZI (4 elementi)
           - seq: 14
             name: INDIRIZZO_2
-            parsetype: alfanumerico
+            parsetype: string
             len: 50
             note:
           - seq: 15
             name: CIVICO_1_2
-            parsetype: alfanumerico
+            parsetype: string
             len: 6
             note:
           - seq: 16
             name: CIVICO_2_2
-            parsetype: alfanumerico
+            parsetype: string
             len: 6
             note:
           - seq: 17
             name: CIVICO_3_2
-            parsetype: alfanumerico
+            parsetype: string
             len: 6
             note:
           - seq: 18
             name: CODICE_STRADA_2
-            parsetype: numerico
+            parsetype: numeric
             len: 5
             note:
           - seq: 19
             name: TOPONIMO_3
-            parsetype: numerico
+            parsetype: numeric
             len: 3
             note: 3 TABELLA INDIRIZZI (4 elementi)
           - seq: 20
             name: INDIRIZZO_3
-            parsetype: alfanumerico
+            parsetype: string
             len: 50
             note:
           - seq: 21
             name: CIVICO_1_3
-            parsetype: alfanumeric
+            parsetype: string
             len: 6
             note:
           - seq: 22
             name: CIVICO_2_3
-            parsetype: alfanumerico
+            parsetype: string
             len: 6
             note:
           - seq: 23
             name: CIVICO_3_3
-            parsetype: alfanumerico
+            parsetype: string
             len: 6
             note:
           - seq: 24
             name: CODICE_STRADA_3
-            parsetype: numerico
+            parsetype: numeric
             len: 5
             note:
           - seq: 25
             name: TOPONIMO_4
-            parsetype: numerico
+            parsetype: numeric
             len: 3
             note: 4 TABELLA INDIRIZZI (4 elementi)
           - seq: 26
             name: INDIRIZZO_4
-            parsetype: alfanumerico
+            parsetype: string
             len: 50
             note:
           - seq: 27
             name: CIVICO_1_4
-            parsetype: alfanumeric
+            parsetype: string
             len: 6
             note:
           - seq: 28
             name: CIVICO_2_4
-            parsetype: alfanumeric
+            parsetype: string
             len: 6
             note:
           - seq: 29
             name: CIVICO_3_4
-            parsetype: alfanumeric
+            parsetype: string
             len: 6
             note: 6
           - seq: 30
             name: CODICE_STRADA_4
-            parsetype: numerico
+            parsetype: numeric
             len: 5
             note:
-        out:
+        output:
           - name: indirizzi
             prefix:
             suffix: _indirizzi
             mappings:
-              - cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                toponimo: TOPONIMO_1
-                indirizzo: INDIRIZZO_1
-                civico1: CIVICO_1_1
-                civico2: CIVICO_2_1
-                civico3: CIVICO_3_1
-                codicestrada: CODICE_STRADA_1
-              - cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                toponimo: TOPONIMO_2
-                indirizzo: INDIRIZZO_2
-                civico1: CIVICO_1_2
-                civico2: CIVICO_2_2
-                civico3: CIVICO_3_2
-                codicestrada: CODICE_STRADA_2
-              - cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                toponimo: TOPONIMO_3
-                indirizzo: INDIRIZZO_3
-                civico1: CIVICO_1_3
-                civico2: CIVICO_2_3
-                civico3: CIVICO_3_3
-                codicestrada: CODICE_STRADA_3
-              - cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                toponimo: TOPONIMO_4
-                indirizzo: INDIRIZZO_4
-                civico1: CIVICO_1_4
-                civico2: CIVICO_2_4
-                civico3: CIVICO_3_4
-                codicestrada: CODICE_STRADA_4
+              - 
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: toponimo
+                  alias: TOPONIMO_1
+                - name: indirizzo
+                  alias: INDIRIZZO_1
+                - name: civico1
+                  alias: CIVICO_1_1
+                - name: civico2
+                  alias: CIVICO_2_1
+                - name: civico3
+                  alias: CIVICO_3_1
+                - name: codicestrada
+                  alias: CODICE_STRADA_1
+              - 
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: toponimo
+                  alias: TOPONIMO_2
+                - name: indirizzo
+                  alias: INDIRIZZO_2
+                - name: civico1
+                  alias: CIVICO_1_2
+                - name: civico2
+                  alias: CIVICO_2_2
+                - name: civico3
+                  alias: CIVICO_3_2
+                - name: codicestrada
+                  alias: CODICE_STRADA_2
+              - 
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: toponimo
+                  alias: TOPONIMO_3
+                - name: indirizzo
+                  alias: INDIRIZZO_3
+                - name: civico1
+                  alias: CIVICO_1_3
+                - name: civico2
+                  alias: CIVICO_2_3
+                - name: civico3
+                  alias: CIVICO_3_3
+                - name: codicestrada
+                  alias: CODICE_STRADA_3
+              - 
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: toponimo
+                  alias: TOPONIMO_4
+                - name: indirizzo
+                  alias: INDIRIZZO_4
+                - name: civico1
+                  alias: CIVICO_1_4
+                - name: civico2
+                  alias: CIVICO_2_4
+                - name: civico3
+                  alias: CIVICO_3_4
+                - name: codicestrada
+                  alias: CODICE_STRADA_4
       - name: utilita_uiu
         when:
           or:
@@ -967,389 +1179,499 @@ files:
         fields:
           - seq: 1
             bane: CODICE_COMUNE
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 2
             bane: SEZIONE
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: tabella Sezioni censuarie
           - seq: 3
             bane: ID_IMMOBILE
-            parsetype: numerico
+            parsetype: numeric
             len: 9
             note: Progressivo dell’immobile nella banca dati
           - seq: 4
             bane: TIPO_IMMOBILE
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: Assume valore fisso F (fabbricati)
           - seq: 5
             bane: PROGRESSIVO
-            parsetype: numerico
+            parsetype: numeric
             len: 3
             note: (stadio)
           - seq: 6
             bane: TIPORECORD
-            parsetype: numerico
+            parsetype: numeric
             len: 1
             note: valore fisso 4
           - seq: 7
             bane: SEZIONE_URBANA_1
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note: 1 TABELLA UTILITA  COMUNI (10 elementi)
           - seq: 8
             bane: FOGLIO_1
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 9
             bane: NUMERO_1
-            parsetype: alfanumerico
+            parsetype: string
             len: 5
             note:
           - seq: 10
             bane: DENOMINATORE_1
-            parsetype: numerico
+            parsetype: numeric
             len: 4
             note:
           - seq: 11
             bane: SUBALTERNO_1
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 12
             bane: SEZIONE_URBANA_2
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note: 2 TABELLA UTILITA  COMUNI (10 elementi)
           - seq: 13
             bane: FOGLIO_2
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 14
             bane: NUMERO_2
-            parsetype: alfanumerico
+            parsetype: string
             len: 5
             note:
           - seq: 15
             bane: DENOMINATORE_2
-            parsetype: numerico
+            parsetype: numeric
             len: 4
             note:
           - seq: 16
             bane: SUBALTERNO_2
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 17
             bane: SEZIONE_URBANA_3
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note: 4 TABELLA UTILITA  COMUNI (10 elementi)
           - seq: 18
             bane: FOGLIO_3
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 19
             bane: NUMERO_3
-            parsetype: alfanumerico
+            parsetype: string
             len: 5
             note:
           - seq: 20
             bane: DENOMINATORE_3
-            parsetype: numerico
+            parsetype: numeric
             len: 4
             note:
           - seq: 21
             bane: SUBALTERNO_3
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 22
             bane: SEZIONE_URBANA_4
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note: 4 TABELLA UTILITA  COMUNI (10 elementi)
           - seq: 23
             bane: FOGLIO_4
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 24
             bane: NUMERO_4
-            parsetype: alfanumerico
+            parsetype: string
             len: 5
             note:
           - seq: 25
             bane: DENOMINATORE_4
-            parsetype: numerico
+            parsetype: numeric
             len: 4
             note:
           - seq: 26
             bane: SUBALTERNO_4
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 27
             bane: SEZIONE_URBANA_5
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note: 5 TABELLA UTILITA  COMUNI (10 elementi)
           - seq: 28
             bane: FOGLIO_5
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 29
             bane: NUMERO_5
-            parsetype: alfanumerico
+            parsetype: string
             len: 5
             note:
           - seq: 30
             bane: DENOMINATORE_5
-            parsetype: numerico
+            parsetype: numeric
             len: 4
             note:
           - seq: 31
             bane: SUBALTERNO_5
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 32
             bane: SEZIONE_URBANA_6
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note: 6 TABELLA UTILITA  COMUNI (10 elementi)
           - seq: 33
             bane: FOGLIO_6
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 34
             bane: NUMERO_6
-            parsetype: alfanumerico
+            parsetype: string
             len: 5
             note:
           - seq: 35
             bane: DENOMINATORE_6
-            parsetype: numerico
+            parsetype: numeric
             len: 4
             note:
           - seq: 36
             bane: SUBALTERNO_6
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 37
             bane: SEZIONE_URBANA_7
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note: 7 TABELLA UTILITA  COMUNI (10 elementi)
           - seq: 38
             bane: FOGLIO_7
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 39
             bane: NUMERO_7
-            parsetype: alfanumerico
+            parsetype: string
             len: 5
             note:
           - seq: 40
             bane: DENOMINATORE_7
-            parsetype: numerico
+            parsetype: numeric
             len: 4
             note:
           - seq: 41
             bane: SUBALTERNO_7
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 42
             bane: SEZIONE_URBANA_8
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note: 8 TABELLA UTILITA  COMUNI (10 elementi)
           - seq: 43
             bane: FOGLIO_8
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 44
             bane: NUMERO_8
-            parsetype: alfanumerico
+            parsetype: string
             len: 5
             note:
           - seq: 45
             bane: DENOMINATORE_8
-            parsetype: numerico
+            parsetype: numeric
             len: 4
             note:
           - seq: 46
             bane: SUBALTERNO_8
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 47
             bane: SEZIONE_URBANA_9
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note: 9 TABELLA UTILITA  COMUNI (10 elementi)
           - seq: 48
             bane: FOGLIO_9
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 49
             bane: NUMERO_9
-            parsetype: alfanumerico
+            parsetype: string
             len: 5
             note:
           - seq: 50
             bane: DENOMINATORE_9
-            parsetype: numerico
+            parsetype: numeric
             len: 4
             note:
           - seq: 51
             bane: SUBALTERNO_9
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 52
             bane: SEZIONE_URBANA_10
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note: 10 TABELLA UTILITA  COMUNI (10 elementi)
           - seq: 53
             bane: FOGLIO_10
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 54
             bane: NUMERO_10
-            parsetype: alfanumerico
+            parsetype: string
             len: 5
             note:
           - seq: 55
             bane: DENOMINATORE_10
-            parsetype: numerico
+            parsetype: numeric
             len: 4
             note:
           - seq: 56
             bane: SUBALTERNO_10
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
-        out:
+        output:
           - name: utilita
             prefix:
             suffix: _utilita
             mappings:
-              - cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                sezione: SEZIONE_URBANA_1
-                foglio: FOGLIO_1
-                numero: NUMERO_1
-                denominatore: DENOMINATORE_1
-                subalterno: SUBALTERNO_1
-              - cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                sezione: SEZIONE_URBANA_2
-                foglio: FOGLIO_2
-                numero: NUMERO_2
-                denominatore: DENOMINATORE_2
-                subalterno: SUBALTERNO_2
-              - cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                sezione: SEZIONE_URBANA_3
-                foglio: FOGLIO_3
-                numero: NUMERO_3
-                denominatore: DENOMINATORE_3
-                subalterno: SUBALTERNO_3
-              - cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                sezione: SEZIONE_URBANA_4
-                foglio: FOGLIO_4
-                numero: NUMERO_4
-                denominatore: DENOMINATORE_4
-                subalterno: SUBALTERNO_4
-              - cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                sezione: SEZIONE_URBANA_5
-                foglio: FOGLIO_5
-                numero: NUMERO_5
-                denominatore: DENOMINATORE_5
-                subalterno: SUBALTERNO_5
-              - cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                sezione: SEZIONE_URBANA_6
-                foglio: FOGLIO_6
-                numero: NUMERO_6
-                denominatore: DENOMINATORE_6
-                subalterno: SUBALTERNO_6
-              - cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                sezione: SEZIONE_URBANA_7
-                foglio: FOGLIO_7
-                numero: NUMERO_7
-                denominatore: DENOMINATORE_7
-                subalterno: SUBALTERNO_7
-              - cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                sezione: SEZIONE_URBANA_8
-                foglio: FOGLIO_8
-                numero: NUMERO_8
-                denominatore: DENOMINATORE_8
-                subalterno: SUBALTERNO_8
-              - cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                sezione: SEZIONE_URBANA_9
-                foglio: FOGLIO_9
-                numero: NUMERO_9
-                denominatore: DENOMINATORE_9
-                subalterno: SUBALTERNO_9
-              - cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                sezione: SEZIONE_URBANA_10
-                foglio: FOGLIO_10
-                numero: NUMERO_10
-                denominatore: DENOMINATORE_10
-                subalterno: SUBALTERNO_10
+              - 
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: sezione
+                  alias: SEZIONE_URBANA_1
+                - name: foglio
+                  alias: FOGLIO_1
+                - name: numero
+                  alias: NUMERO_1
+                - name: denominatore
+                  alias: DENOMINATORE_1
+                - name: subalterno
+                  alias: SUBALTERNO_1
+              - 
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: sezione
+                  alias: SEZIONE_URBANA_2
+                - name: foglio
+                  alias: FOGLIO_2
+                - name: numero
+                  alias: NUMERO_2
+                - name: denominatore
+                  alias: DENOMINATORE_2
+                - name: subalterno
+                  alias: SUBALTERNO_2
+              - 
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: sezione
+                  alias: SEZIONE_URBANA_3
+                - name: foglio
+                  alias: FOGLIO_3
+                - name: numero
+                  alias: NUMERO_3
+                - name: denominatore
+                  alias: DENOMINATORE_3
+                - name: subalterno
+                  alias: SUBALTERNO_3
+              - 
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: sezione
+                  alias: SEZIONE_URBANA_4
+                - name: foglio
+                  alias: FOGLIO_4
+                - name: numero
+                  alias: NUMERO_4
+                - name: denominatore
+                  alias: DENOMINATORE_4
+                - name: subalterno
+                  alias: SUBALTERNO_4
+              - 
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: sezione
+                  alias: SEZIONE_URBANA_5
+                - name: foglio
+                  alias: FOGLIO_5
+                - name: numero
+                  alias: NUMERO_5
+                - name: denominatore
+                  alias: DENOMINATORE_5
+                - name: subalterno
+                  alias: SUBALTERNO_5
+              - 
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: sezione
+                  alias: SEZIONE_URBANA_6
+                - name: foglio
+                  alias: FOGLIO_6
+                - name: numero
+                  alias: NUMERO_6
+                - name: denominatore
+                  alias: DENOMINATORE_6
+                - name: subalterno
+                  alias: SUBALTERNO_6
+              - 
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: sezione
+                  alias: SEZIONE_URBANA_7
+                - name: foglio
+                  alias: FOGLIO_7
+                - name: numero
+                  alias: NUMERO_7
+                - name: denominatore
+                  alias: DENOMINATORE_7
+                - name: subalterno
+                  alias: SUBALTERNO_7
+              - 
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: sezione
+                  alias: SEZIONE_URBANA_8
+                - name: foglio
+                  alias: FOGLIO_8
+                - name: numero
+                  alias: NUMERO_8
+                - name: denominatore
+                  alias: DENOMINATORE_8
+                - name: subalterno
+                  alias: SUBALTERNO_8
+              - 
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: sezione
+                  alias: SEZIONE_URBANA_9
+                - name: foglio
+                  alias: FOGLIO_9
+                - name: numero
+                  alias: NUMERO_9
+                - name: denominatore
+                  alias: DENOMINATORE_9
+                - name: subalterno
+                  alias: SUBALTERNO_9
+              - 
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: sezione
+                  alias: SEZIONE_URBANA_10
+                - name: foglio
+                  alias: FOGLIO_10
+                - name: numero
+                  alias: NUMERO_10
+                - name: denominatore
+                  alias: DENOMINATORE_10
+                - name: subalterno
+                  alias: SUBALTERNO_10
       - name: riserve_uiu
         when:
           or:
@@ -1358,209 +1680,289 @@ files:
         fields:
           - seq: 1
             name: CODICE_COMUNE
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 2
             name: SEZIONE
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: tabella Sezioni censuarie
           - seq: 3
             name: ID_IMMOBILE
-            parsetype: numerico
+            parsetype: numeric
             len: 9
             note: Progressivo dell’immobile nella banca dati
           - seq: 4
             name: TIPO_IMMOBILE
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: Assume valore fisso F (fabbricati)
           - seq: 5
             name: PROGRESSIVO
-            parsetype: numerico
+            parsetype: numeric
             len: 3
             note: (stadio)
           - seq: 6
             name: TIPORECORD
-            parsetype: numerico
+            parsetype: numeric
             len: 1
             note: valore fisso 5
           - seq: 7
             name: COD_RISERVA_1
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 1 TABELLA RISERVE (10 elementi)
           - seq: 8
             name: PARTITA_RISERVA_1
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 9
             name: COD_RISERVA_2
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 2 TABELLA RISERVE (10 elementi)
           - seq: 10
             name: PARTITA_RISERVA_2
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 11
             name: COD_RISERVA_3
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 3 TABELLA RISERVE (10 elementi)
           - seq: 12
             name: PARTITA_RISERVA_3
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 13
             name: COD_RISERVA_4
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 4 TABELLA RISERVE (10 elementi)
           - seq: 14
             name: PARTITA_RISERVA_4
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 15
             name: COD_RISERVA_5
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 5 TABELLA RISERVE (10 elementi)
           - seq: 16
             name: PARTITA_RISERVA_5
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 17
             name: COD_RISERVA_6
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 6 TABELLA RISERVE (10 elementi)
           - seq: 18
             name: PARTITA_RISERVA_6
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 19
             name: COD_RISERVA_7
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 7 TABELLA RISERVE (10 elementi)
           - seq: 20
             name: PARTITA_RISERVA_7
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 21
             name: COD_RISERVA_8
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 8 TABELLA RISERVE (10 elementi)
           - seq: 22
             name: PARTITA_RISERVA_8
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 23
             name: COD_RISERVA_9
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 9 TABELLA RISERVE (10 elementi)
           - seq: 24
             name: PARTITA_RISERVA_9
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 25
             name: COD_RISERVA_10
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 10 TABELLA RISERVE (10 elementi)
           - seq: 26
             name: PARTITA_RISERVA_10
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
-        out:
+        output:
           - name: riserve
             prefix:
             suffix: :riserve
             mappings:
-              - cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                codice: COD_RISERVA_1
-                partita: PARTITA_RISERVA_1
-              - cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                codice: COD_RISERVA_2
-                partita: PARTITA_RISERVA_2
-              - cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                codice: COD_RISERVA_3
-                partita: PARTITA_RISERVA_3
-              - cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                codice: COD_RISERVA_4
-                partita: PARTITA_RISERVA_4
-              - cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                codice: COD_RISERVA_5
-                partita: PARTITA_RISERVA_5
-              - cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                codice: COD_RISERVA_6
-                partita: PARTITA_RISERVA_6
-              - cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                codice: COD_RISERVA_7
-                partita: PARTITA_RISERVA_7
-              - cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                codice: COD_RISERVA_8
-                partita: PARTITA_RISERVA_8
-              - cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                codice: COD_RISERVA_9
-                partita: PARTITA_RISERVA_9
-              - cod_com: CODICE_COMUNE
-                sez: SEZIONE
-                id_uiu: ID_IMMOBILE
-                tipo_immpbile: TIPO_IMMOBILE
-                progressivo: PROGRESSIVO
-                codice: COD_RISERVA_10
-                partita: PARTITA_RISERVA_10
+              - 
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: codice
+                  alias: COD_RISERVA_1
+                - name: partita
+                  alias: PARTITA_RISERVA_1
+              - 
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: codice
+                  alias: COD_RISERVA_2
+                - name: partita
+                  alias: PARTITA_RISERVA_2
+              - 
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: codice
+                  alias: COD_RISERVA_3
+                - name: partita
+                  alias: PARTITA_RISERVA_3
+              - 
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: codice
+                  alias: COD_RISERVA_4
+                - name: partita
+                  alias: PARTITA_RISERVA_4
+              - 
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: codice
+                  alias: COD_RISERVA_5
+                - name: partita
+                  alias: PARTITA_RISERVA_5
+              - 
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: codice
+                  alias: COD_RISERVA_6
+                - name: partita
+                  alias: PARTITA_RISERVA_6
+              - 
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: codice
+                  alias: COD_RISERVA_7
+                - name: partita
+                  alias: PARTITA_RISERVA_7
+              - 
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: codice
+                  alias: COD_RISERVA_8
+                - name: partita
+                  alias: PARTITA_RISERVA_8
+              - 
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: codice
+                  alias: COD_RISERVA_9
+                - name: partita
+                  alias: PARTITA_RISERVA_9
+              - 
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sez
+                  alias: SEZIONE
+                - name: id_uiu
+                  alias: ID_IMMOBILE
+                - name: tipo_immpbile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo
+                  alias: PROGRESSIVO
+                - name: codice
+                  alias: COD_RISERVA_10
+                - name: partita
+                  alias: PARTITA_RISERVA_10
  
   - name: TER
     extension: TER
@@ -1577,229 +1979,317 @@ files:
         fields:
           - seq: 1
             name: CODICE_COMUNE
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 2
             name: SEZIONE
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: tabella Sezioni censuarie
           - seq: 3
             name: ID_IMMOBILE
-            parsetype: numerico
+            parsetype: numeric
             len: 9
             note: Progressivo dell’immobile nella banca dati
           - seq: 4
             name: TIPO_IMMOBILE
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: Assume valore fisso T (terreni)
           - seq: 5
             name: PROGRESSIVO
-            parsetype: numerico
+            parsetype: numeric
             len: 3
             note: (stadio)
           - seq: 6
             name: TIPORECORD
-            parsetype: numerico
+            parsetype: numeric
             len: 1
             note: valore fisso 1
           - seq: 7
             name: FOGLIO
-            parsetype: numerico
+            parsetype: numeric
             len: 5
             note:
           - seq: 8
             name: NUMERO
-            parsetype: alfanumerico
+            parsetype: string
             len: 5
             note:
           - seq: 9
             name: DENOMINATORE
-            parsetype: numerico
+            parsetype: numeric
             len: 4
             note:
           - seq: 10
             name: SUBALTERNO
-            parsetype: alanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 11
             name: EDIFICIALITA
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note:
           - seq: 12
             name: QUALITA
-            parsetype: numerico
+            parsetype: numeric
             len: 3
             note:
           - seq: 13
             name: CLASSE
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note:
           - seq: 14
             name: ETTARI
-            parsetype: numerico
+            parsetype: numeric
             len: 5
             note:
           - seq: 15
             name: ARE
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 16
             name: CENTIARE
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 17
             name: FLAG_REDDITO
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: (0 calcolabile; 1 non calcolabile)
           - seq: 18
             name: FLAG_PORZIONI
-            parsetype: alfanumeric
+            parsetype: string
             len: 1
             note: (0 assenti; 1 esistenza porzioni)
           - seq: 19
             name: FLAG_DEDUZION
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: (0 assenti; 1 esistenza deduzioni)
           - seq: 20
             name: REDDITO_DOMINICALE_LIRE
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 9
-            note: .
           - seq: 21
             name: REDDITO_AGRARIO_LIRE
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 8
             note:
           - seq: 22
             name: RED_DOMINICALE_EURO
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 12
             note: .(gli ultimi 3 caratteri sono decimali)
           - seq: 23
             name: RED_AGRARIO_EURO
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 24
             name: INI_D_EFFICACIA
-            parsetype: numerico
+            parsetype: DATE(GGMMAAAA)
             len: 8
-            note: formato GGMMAAAA
+            note: DATE(GGMMAAAA)
           - seq: 25
             name: INI_D_REGISTRAZIONE
-            parsetype: numerico
+            parsetype: DATE(GGMMAAAA)
             len: 8
-            note: formato GGMMAAAA
           - seq: 26
             name: INI_TIPO_NOTA
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
-            note:
           - seq: 27
             name: INI_NUMERO_NOTA
-            parsetype: alfanumerico
+            parsetype: string
             len: 6
-            note: .
           - seq: 28
             name: INI_PROGRESSIVO_NOTA
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
-            note: .
           - seq: 29
             name: INI_ANNO_NOTA
-            parsetype: numerico
+            parsetype: numeric
             len: 4
-            note: .
           - seq: 30
             name: FIN_D_EFFICACIA
-            parsetype: numerico
+            parsetype: DATE(GGMMAAAA)
             len: 8
-            note: formato GGMMAAAA
           - seq: 31
             name: FIN_D_REGISTRAZIONE
-            parsetype: numerico
+            parsetype: DATE(GGMMAAAA)
             len: 8
-            note: formato GGMMAAAA
           - seq: 32
             name: FIN_TIPO_NOTA
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note:
           - seq: 33
             name: FIN_NUMERO_NOTA
-            parsetype: alfanumerico
+            parsetype: string
             len: 6
             note:
           - seq: 34
             name: FIN_PROGRESSIVO_NOTA
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note:
           - seq: 35
             name: FIN_ANNO_NOTA
-            parsetype: numerico
+            parsetype: numeric
             len: 4
             note:
           - seq: 36
             name: PARTITA
-            parsetype: alanumerico
+            parsetype: string
             len: 7
             note: Informazioni aggiuntive sulle caratteristiche dell’immobile
           - seq: 37
             name: ANNOTAZIONE
-            parsetype: alfanumerico
+            parsetype: string
             len: 200
             note:
           - seq: 38
             name: ID_MUTAZIONE_INI
-            parsetype: numerico
+            parsetype: numeric
             len: 9
             note:
           - seq: 39
             name: ID_MUTAZIONE_FIN
-            parsetype: numerico
+            parsetype: numeric
             len: 9
             note:
           - seq: 40
             name: PROT_NOTIFICA
-            parsetype: alfanumerico
+            parsetype: string
             len: 18
             note: (numero di protocollo della notifica di classamento)
           - seq: 41
             name: D_NOTIFICA
-            parsetype: numerico
+            parsetype: DATE(GGMMAAAA)
             len: 8
-            note: formato GGMMAAAA (numero di protocollo della notifica di classamento)
+            note: DATE(GGMMAAAA) (numero di protocollo della notifica di classamento)
           - seq: 42
             name: INI_CODICE_CAUSALE
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note:
           - seq: 43
             name: INI_DESCRIZIONE
-            parsetype: alfanumerico
+            parsetype: string
             len: 100
             note:
           - seq: 44
             name: FIN_CODICE_CAUSALE
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note:
           - seq: 45
             name: FIN_DESCRIZIONE
-            parsetype: alfanumerico
+            parsetype: string
             len: 100
             note:
+        output:
+          - name: particelle
+            prefix:
+            suffix: _PART
+            mappings:
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: foglio
+                  alias: FOGLIO
+                - name: numero
+                  alias: NUMERO
+                - name: denominatore
+                  alias: DENOMINATORE
+                - name: subalterno
+                  alias: SUBALTERNO
+                - name: edificialita
+                  alias: EDIFICIALITA
+                - name: qualita
+                  alias: QUALITA
+                - name: classe
+                  alias: CLASSE
+                - name: sup_ettari
+                  alias: ETTARI
+                - name: sup_are
+                  alias: ARE
+                - name: sup_centiare
+                  alias: CENTIARE
+                - name: flag_reddito
+                  alias: FLAG_REDDITO
+                - name: flag_porzione
+                  alias: FLAG_PORZIONI
+                - name: flag_deduzioni
+                  alias: FLAG_DEDUZION
+                - name: reddito_dominicale_lire
+                  alias: REDDITO_DOMINICALE_LIRE
+                - name: reddito_agrario_lire
+                  alias: REDDITO_AGRARIO_LIRE
+                - name: reddito_dominicale_euro
+                  alias: RED_DOMINICALE_EURO
+                - name: reddito_agrario_euro
+                  alias: RED_AGRARIO_EURO
+                - name: ini_data_efficacia
+                  alias: INI_D_EFFICACIA
+                - name: ini_data_registrazione
+                  alias: INI_D_REGISTRAZIONE
+                - name: ini_tipo_nota
+                  alias: INI_TIPO_NOTA
+                - name: ini_numero_nota
+                  alias: INI_NUMERO_NOTA
+                - name: ini_progressivo_nota
+                  alias: INI_PROGRESSIVO_NOTA
+                - name: ini_anno_nota
+                  alias: INI_ANNO_NOTA
+                - name: fin_data_efficacia
+                  alias: FIN_D_EFFICACIA
+                - name: fin_data_registrazione
+                  alias: FIN_D_REGISTRAZIONE
+                - name: fin_tipo_nota
+                  alias: FIN_TIPO_NOTA
+                - name: fin_numero_nota
+                  alias: FIN_NUMERO_NOTA
+                - name: fin_progressivo_nota
+                  alias: FIN_PROGRESSIVO_NOTA
+                - name: fin_anno_nota
+                  alias: FIN_ANNO_NOTA
+                - name: partita
+                  alias: PARTITA
+                - name: annotazione
+                  alias: ANNOTAZIONE
+                - name: ini_id_mutazione
+                  alias: ID_MUTAZIONE_INI
+                - name: fin_id_mutazione
+                  alias: ID_MUTAZIONE_FIN
+                - name: ini_codice_causale
+                  alias: INI_CODICE_CAUSALE
+                - name: ini_descrizione
+                  alias: INI_DESCRIZIONE
+                - name: fin_codice_causale
+                  alias: FIN_CODICE_CAUSALE
+                - name: fin_descrizione
+                  alias: FIN_DESCRIZIONE
+            #  PROT_NOTIFICA
+            #  D_NOTIFICA
+              ##################################################################################################) FROM stdin;
+
       - name: deduzioni
         when:
           or:
@@ -1808,69 +2298,179 @@ files:
         fields:
           - seq: 1
             name: CODICE_COMUNE
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 2
             name: SEZIONE
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: tabella Sezioni censuarie
           - seq: 3
             name: ID_IMMOBILE
-            parsetype: numerico
+            parsetype: numeric
             len: 9
             note: Progressivo dell’immobile nella banca dati
           - seq: 4
             name: TIPO_IMMOBILE
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: Assume valore fisso T (terreni)
           - seq: 5
             name: PROGRESSIVO
-            parsetype: numerico
+            parsetype: numeric
             len: 3
             note: (stadio)
           - seq: 6
             name: TIPORECORD
-            parsetype: numerico
+            parsetype: numeric
             len: 1
             note: valore fisso 2
           - seq: 7
             name: SIMBOLO_DEDUZIONE_1
-            parsetype: alfanumerico
+            parsetype: string
             len: 6
             note: 1 TABELLA DEDUZIONI (7 elementi)
           - seq: 8
             name: SIMBOLO_DEDUZIONE_2
-            parsetype: alfanumerico
+            parsetype: string
             len: 6
             note: 2 TABELLA DEDUZIONI (7 elementi)
           - seq: 9
             name: SIMBOLO_DEDUZIONE_3
-            parsetype: alfanumerico
+            parsetype: string
             len: 6
             note: 3 TABELLA DEDUZIONI (7 elementi)
           - seq: 10
             name: SIMBOLO_DEDUZIONE_4
-            parsetype: alfanumerico
+            parsetype: string
             len: 6
             note: 4 TABELLA DEDUZIONI (7 elementi)
           - seq: 11
             name: SIMBOLO_DEDUZIONE_5
-            parsetype: alfanumerico
+            parsetype: string
             len: 6
             note: 5 TABELLA DEDUZIONI (7 elementi)
           - seq: 12
             name: SIMBOLO_DEDUZIONE_6
-            parsetype: alfanumerico
+            parsetype: string
             len: 6
             note: 6 TABELLA DEDUZIONI (7 elementi)
           - seq: 13
             name: SIMBOLO_DEDUZIONE_7
-            parsetype: alfanumerico
+            parsetype: string
             len: 6
             note: 7 TABELLA DEDUZIONI (7 elementi)
+        output:
+          - name:   deduzioni
+            prefix:
+            suffix: _deduzioni
+            mappings:
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: simbolo_deduzione
+                  alias: SIMBOLO_DEDUZIONE_1
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: simbolo_deduzione
+                  alias: SIMBOLO_DEDUZIONE_2
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: simbolo_deduzione
+                  alias: SIMBOLO_DEDUZIONE_3
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: simbolo_deduzione
+                  alias: SIMBOLO_DEDUZIONE_4
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: simbolo_deduzione
+                  alias: SIMBOLO_DEDUZIONE_5
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: simbolo_deduzione
+                  alias: SIMBOLO_DEDUZIONE_6
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: simbolo_deduzione
+                  alias: SIMBOLO_DEDUZIONE_7
       - name: riserve
         when:
           or:
@@ -1879,324 +2479,840 @@ files:
         fields:
           - seq: 1
             name: CODICE_COMUNE
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 2
             name: SEZIONE
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: tabella Sezioni censuarie
           - seq: 3
             name: ID_IMMOBILE
-            parsetype: numerico
+            parsetype: numeric
             len: 9
             note: Progressivo dell’immobile nella banca dati
           - seq: 4
             name: TIPO_IMMOBILE
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: Assume valore fisso T (terreni)
           - seq: 5
             name: PROGRESSIVO
-            parsetype: numerico
+            parsetype: numeric
             len: 3
             note: (stadio)
           - seq: 6
             name: TIPORECORD
-            parsetype: numerico
+            parsetype: numeric
             len: 1
             note: valore fisso 3
           - seq: 7
             name: COD_RISERVA_1
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 1 TABELLA RISERVE (30 elementi)
           - seq: 8
             name: PARTITA_RISERVA_1
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 9
             name: COD_RISERVA_2
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 2 TABELLA RISERVE (30 elementi)
           - seq: 10
             name: PARTITA_RISERVA_2
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 11
             name: COD_RISERVA_3
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 3 TABELLA RISERVE (30 elementi)
           - seq: 12
             name: PARTITA_RISERVA_3
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 13
             name: COD_RISERVA_4
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 4 TABELLA RISERVE (30 elementi)
           - seq: 14
             name: PARTITA_RISERVA_4
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 15
             name: COD_RISERVA_5
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 5 TABELLA RISERVE (30 elementi)
           - seq: 16
             name: PARTITA_RISERVA_5
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 17
             name: COD_RISERVA_6
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 6 TABELLA RISERVE (30 elementi)
           - seq: 18
             name: PARTITA_RISERVA_6
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 19
             name: COD_RISERVA_7
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 7 TABELLA RISERVE (30 elementi)
           - seq: 20
             name: PARTITA_RISERVA_7
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 21
             name: COD_RISERVA_8
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 8 TABELLA RISERVE (30 elementi)
           - seq: 22
             name: PARTITA_RISERVA_8
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 23
             name: COD_RISERVA_9
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 9 TABELLA RISERVE (30 elementi)
           - seq: 24
             name: PARTITA_RISERVA_9
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 25
             name: COD_RISERVA_10
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 10 TABELLA RISERVE (30 elementi)
           - seq: 26
             name: PARTITA_RISERVA_10
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 27
             name: COD_RISERVA_11
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 11 TABELLA RISERVE (30 elementi)
           - seq: 28
             name: PARTITA_RISERVA_11
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 29
             name: COD_RISERVA_12
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 12 TABELLA RISERVE (30 elementi)
           - seq: 30
             name: PARTITA_RISERVA_12
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 31
             name: COD_RISERVA_13
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 13 TABELLA RISERVE (30 elementi)
           - seq: 32
             name: PARTITA_RISERVA_13
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 33
             name: COD_RISERVA_14
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 14 TABELLA RISERVE (30 elementi)
           - seq: 34
             name: PARTITA_RISERVA_14
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 35
             name: COD_RISERVA_16
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 16 TABELLA RISERVE (30 elementi)
           - seq: 36
             name: PARTITA_RISERVA_16
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 37
             name: COD_RISERVA_17
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 17 TABELLA RISERVE (30 elementi)
           - seq: 38
             name: PARTITA_RISERVA_17
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 39
             name: COD_RISERVA_18
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 18 TABELLA RISERVE (30 elementi)
           - seq: 40
             name: PARTITA_RISERVA_18
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 41
             name: COD_RISERVA_19
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 19 TABELLA RISERVE (30 elementi)
           - seq: 42
             name: PARTITA_RISERVA_19
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 43
             name: COD_RISERVA_20
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 20 TABELLA RISERVE (30 elementi)
           - seq: 44
             name: PARTITA_RISERVA_20
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 45
             name: COD_RISERVA_21
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 21 TABELLA RISERVE (30 elementi)
           - seq: 46
             name: PARTITA_RISERVA_21
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 47
             name: COD_RISERVA_22
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 22 TABELLA RISERVE (30 elementi)
           - seq: 48
             name: PARTITA_RISERVA_22
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 49
             name: COD_RISERVA_23
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 23 TABELLA RISERVE (30 elementi)
           - seq: 50
             name: PARTITA_RISERVA_23
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 51
             name: COD_RISERVA_24
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 24 TABELLA RISERVE (30 elementi)
           - seq: 52
             name: PARTITA_RISERVA_24
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 53
             name: COD_RISERVA_25
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 25 TABELLA RISERVE (30 elementi)
           - seq: 54
             name: PARTITA_RISERVA_25
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 55
             name: COD_RISERVA_26
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 26 TABELLA RISERVE (30 elementi)
           - seq: 56
             name: PARTITA_RISERVA_26
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 57
             name: COD_RISERVA_27
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 27 TABELLA RISERVE (30 elementi)
           - seq: 58
             name: PARTITA_RISERVA_27
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 59
             name: COD_RISERVA_28
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 28 TABELLA RISERVE (30 elementi)
           - seq: 60
             name: PARTITA_RISERVA_28
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 61
             name: COD_RISERVA_29
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 29 TABELLA RISERVE (30 elementi)
           - seq: 62
             name: PARTITA_RISERVA_29
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 63
             name: COD_RISERVA_30
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 30 TABELLA RISERVE (30 elementi)
           - seq: 64
             name: PARTITA_RISERVA_30
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note: 6
+        output:
+          - name:   riserve
+            prefix:
+            suffix: _riserve
+            mappings:
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: codice_riserva
+                  alias: COD_RISERVA_1
+                - name: partita_iscrizione_riserva
+                  alias: PARTITA_RISERVA_1
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: codice_riserva
+                  alias: COD_RISERVA_2
+                - name: partita_iscrizione_riserva
+                  alias: PARTITA_RISERVA_2
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: codice_riserva
+                  alias: COD_RISERVA_3
+                - name: partita_iscrizione_riserva
+                  alias: PARTITA_RISERVA_3
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: codice_riserva
+                  alias: COD_RISERVA_4
+                - name: partita_iscrizione_riserva
+                  alias: PARTITA_RISERVA_4
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: codice_riserva
+                  alias: COD_RISERVA_5
+                - name: partita_iscrizione_riserva
+                  alias: PARTITA_RISERVA_5
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: codice_riserva
+                  alias: COD_RISERVA_6
+                - name: partita_iscrizione_riserva
+                  alias: PARTITA_RISERVA_6
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: codice_riserva
+                  alias: COD_RISERVA_7
+                - name: partita_iscrizione_riserva
+                  alias: PARTITA_RISERVA_7
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: codice_riserva
+                  alias: COD_RISERVA_8
+                - name: partita_iscrizione_riserva
+                  alias: PARTITA_RISERVA_8
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: codice_riserva
+                  alias: COD_RISERVA_9
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: partita_iscrizione_riserva
+                  alias: PARTITA_RISERVA_9
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: codice_riserva
+                  alias: COD_RISERVA_10
+                - name: partita_iscrizione_riserva
+                  alias: PARTITA_RISERVA_10
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: codice_riserva
+                  alias: COD_RISERVA_11
+                - name: partita_iscrizione_riserva
+                  alias: PARTITA_RISERVA_11
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: codice_riserva
+                  alias: COD_RISERVA_12
+                - name: partita_iscrizione_riserva
+                  alias: PARTITA_RISERVA_12
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: codice_riserva
+                  alias: COD_RISERVA_13
+                - name: partita_iscrizione_riserva
+                  alias: PARTITA_RISERVA_13
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: codice_riserva
+                  alias: COD_RISERVA_14
+                - name: partita_iscrizione_riserva
+                  alias: PARTITA_RISERVA_14
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: codice_riserva
+                  alias: COD_RISERVA_15
+                - name: partita_iscrizione_riserva
+                  alias: PARTITA_RISERVA_15
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: codice_riserva
+                  alias: COD_RISERVA_16
+                - name: partita_iscrizione_riserva
+                  alias: PARTITA_RISERVA_16
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: codice_riserva
+                  alias: COD_RISERVA_17
+                - name: partita_iscrizione_riserva
+                  alias: PARTITA_RISERVA_17
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: codice_riserva
+                  alias: COD_RISERVA_18
+                - name: partita_iscrizione_riserva
+                  alias: PARTITA_RISERVA_18
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: codice_riserva
+                  alias: COD_RISERVA_19
+                - name: partita_iscrizione_riserva
+                  alias: PARTITA_RISERVA_19
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: codice_riserva
+                  alias: COD_RISERVA_20
+                - name: partita_iscrizione_riserva
+                  alias: PARTITA_RISERVA_20
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: codice_riserva
+                  alias: COD_RISERVA_21
+                - name: partita_iscrizione_riserva
+                  alias: PARTITA_RISERVA_21
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: codice_riserva
+                  alias: COD_RISERVA_22
+                - name: partita_iscrizione_riserva
+                  alias: PARTITA_RISERVA_22
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: codice_riserva
+                  alias: COD_RISERVA_23
+                - name: partita_iscrizione_riserva
+                  alias: PARTITA_RISERVA_23
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: codice_riserva
+                  alias: COD_RISERVA_24
+                - name: partita_iscrizione_riserva
+                  alias: PARTITA_RISERVA_24
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: codice_riserva
+                  alias: COD_RISERVA_25
+                - name: partita_iscrizione_riserva
+                  alias: PARTITA_RISERVA_25
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: codice_riserva
+                  alias: COD_RISERVA_26
+                - name: partita_iscrizione_riserva
+                  alias: PARTITA_RISERVA_26
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: codice_riserva
+                  alias: COD_RISERVA_27
+                - name: partita_iscrizione_riserva
+                  alias: PARTITA_RISERVA_27
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: codice_riserva
+                  alias: COD_RISERVA_28
+                - name: partita_iscrizione_riserva
+                  alias: PARTITA_RISERVA_28
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: codice_riserva
+                  alias: COD_RISERVA_29
+                - name: partita_iscrizione_riserva
+                  alias: PARTITA_RISERVA_29
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: codice_riserva
+                  alias: COD_RISERVA_30
+                - name: partita_iscrizione_riserva
+                  alias: PARTITA_RISERVA_30
+            
       - name: porzioni
         when:
           or:
@@ -2205,834 +3321,1623 @@ files:
         fields:
           - seq: 1
             name: CODICE_COMUNE
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 2
             name: SEZIONE
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: tabella Sezioni censuarie
           - seq: 3
             name: ID_IMMOBILE
-            parsetype: numerico
+            parsetype: numeric
             len: 9
             note: Progressivo dell’immobile nella banca dati
           - seq: 4
             name: TIPO_IMMOBILE
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: Assume valore fisso T (terreni)
           - seq: 5
             name: PROGRESSIVO
-            parsetype: numerico
+            parsetype: numeric
             len: 3
             note: Numero (stadio)
           - seq: 6
             name: TIPORECORD
-            parsetype: numerico
+            parsetype: numeric
             len: 1
             note: valore fisso 3
           - seq: 7
             name: ID_PORZIONE_1
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note: 1 TABELLA PORZIONI (20 elementi)
           - seq: 8
             name: QUALITA_1
-            parsetype: numerico
+            parsetype: numeric
             len: 3
             note:
           - seq: 9
             name: CLASSE_1
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note:
           - seq: 10
             name: ETTARI_1
-            parsetype: numerico
+            parsetype: numeric
             len: 5
             note:
           - seq: 11
             name: ARE_1
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 12
             name: CENTIARE_1
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 13
             name: RED_DOMINICALE_EURO_1
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 14
             name: RED_AGRARIO_EURO_1
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 15
             name: ID_PORZIONE_2
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note: 2 TABELLA PORZIONI (20 elementi)
           - seq: 16
             name: QUALITA_2
-            parsetype: numerico
+            parsetype: numeric
             len: 3
             note:
           - seq: 17
             name: CLASSE_2
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note:
           - seq: 18
             name: ETTARI_2
-            parsetype: numerico
+            parsetype: numeric
             len: 5
             note:
           - seq: 19
             name: ARE_2
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 20
             name: CENTIARE_2
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 21
             name: RED_DOMINICALE_EURO_2
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 22
             name: RED_AGRARIO_EURO_2
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 23
             name: ID_PORZIONE_3
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note: 3 TABELLA PORZIONI (20 elementi)
           - seq: 24
             name: QUALITA_3
-            parsetype: numerico
+            parsetype: numeric
             len: 3
             note:
           - seq: 25
             name: CLASSE_3
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note:
           - seq: 26
             name: ETTARI_3
-            parsetype: numerico
+            parsetype: numeric
             len: 5
             note:
           - seq: 27
             name: ARE_3
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 28
             name: CENTIARE_3
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 29
             name: RED_DOMINICALE_EURO_3
-            parsetype: numerico
+            parsetype: numeric
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 30
             name: RED_AGRARIO_EURO_3
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 31
             name: ID_PORZIONE_4
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note: 4 TABELLA PORZIONI (20 elementi)
           - seq: 32
             name: QUALITA_4
-            parsetype: numerico
+            parsetype: numeric
             len: 3
             note:
           - seq: 33
             name: CLASSE_4
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note:
           - seq: 34
             name: ETTARI_4
-            parsetype: numerico
+            parsetype: numeric
             len: 5
             note:
           - seq: 35
             name: ARE_4
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 36
             name: CENTIARE_4
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 37
             name: RED_DOMINICALE_EURO_4
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 38
             name: RED_AGRARIO_EURO_4
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 39
             name: ID_PORZIONE_5
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note: 5 TABELLA PORZIONI (20 elementi)
           - seq: 40
             name: QUALITA_5
-            parsetype: numerico
+            parsetype: numeric
             len: 3
             note:
           - seq: 41
             name: CLASSE_5
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note:
           - seq: 42
             name: ETTARI_5
-            parsetype: numerico
+            parsetype: numeric
             len: 5
             note:
           - seq: 43
             name: ARE_5
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 44
             name: CENTIARE_5
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 45
             name: RED_DOMINICALE_EURO_5
-            parsetype: numerico
+            parsetype: numeric
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 46
             name: RED_AGRARIO_EURO_5
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 47
             name: ID_PORZIONE_6
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note: 6 TABELLA PORZIONI (20 elementi)
           - seq: 48
             name: QUALITA_6
-            parsetype: numerico
+            parsetype: numeric
             len: 3
             note:
           - seq: 49
             name: CLASSE_6
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note:
           - seq: 50
             name: ETTARI_6
-            parsetype: numerico
+            parsetype: numeric
             len: 5
             note:
           - seq: 51
             name: ARE_6
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 52
             name: CENTIARE_6
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 53
             name: RED_DOMINICALE_EURO_6
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 54
             name: RED_AGRARIO_EURO_6
-            parsetype: numerico
+            parsetype: FIX(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 55
             name: ID_PORZIONE_7
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note: 7 TABELLA PORZIONI (20 elementi)
           - seq: 56
             name: QUALITA_7
-            parsetype: numerico
+            parsetype: numeric
             len: 3
             note:
           - seq: 57
             name: CLASSE_7
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note:
           - seq: 58
             name: ETTARI_7
-            parsetype: numerico
+            parsetype: numeric
             len: 5
             note:
           - seq: 59
             name: ARE_7
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 60
             name: CENTIARE_7
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 61
             name: RED_DOMINICALE_EURO_7
-            parsetype: numerico
+            parsetype: FIX(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 62
             name: RED_AGRARIO_EURO_7
-            parsetype: numerico
+            parsetype: FIX(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 63
             name: ID_PORZIONE_8
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note: 8 TABELLA PORZIONI (20 elementi)
           - seq: 64
             name: QUALITA_8
-            parsetype: numerico
+            parsetype: numeric
             len: 3
             note:
           - seq: 65
             name: CLASSE_8
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note:
           - seq: 66
             name: ETTARI_8
-            parsetype: numerico
+            parsetype: numeric
             len: 5
             note:
           - seq: 67
             name: ARE_8
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 68
             name: CENTIARE_8
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 69
             name: RED_DOMINICALE_EURO_8
-            parsetype: numerico
+            parsetype: FIX(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 70
             name: RED_AGRARIO_EURO_8
-            parsetype: numerico
+            parsetype: FIX(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 71
             name: ID_PORZIONE_9
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note: 9 TABELLA PORZIONI (20 elementi)
           - seq: 72
             name: QUALITA_9
-            parsetype: numerico
+            parsetype: numeric
             len: 3
             note:
           - seq: 73
             name: CLASSE_9
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note:
           - seq: 74
             name: ETTARI_9
-            parsetype: numerico
+            parsetype: numeric
             len: 5
             note:
           - seq: 75
             name: ARE_9
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 76
             name: CENTIARE_9
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 77
             name: RED_DOMINICALE_EURO_9
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 78
             name: RED_AGRARIO_EURO_9
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 79
             name: ID_PORZIONE_10
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note: 10 TABELLA PORZIONI (20 elementi)
           - seq: 80
             name: QUALITA_10
-            parsetype: numerico
+            parsetype: numeric
             len: 3
             note:
           - seq: 81
             name: CLASSE_10
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note:
           - seq: 82
             name: ETTARI_10
-            parsetype: numerico
+            parsetype: numeric
             len: 5
             note:
           - seq: 83
             name: ARE_10
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 84
             name: CENTIARE_10
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 85
             name: RED_DOMINICALE_EURO_10
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 86
             name: RED_AGRARIO_EURO_10
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 87
             name: ID_PORZIONE_11
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note: 11 TABELLA PORZIONI (20 elementi)
           - seq: 88
             name: QUALITA_11
-            parsetype: numerico
+            parsetype: numeric
             len: 3
             note:
           - seq: 89
             name: CLASSE_11
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note:
           - seq: 90
             name: ETTARI_11
-            parsetype: numerico
+            parsetype: numeric
             len: 5
             note:
           - seq: 91
             name: ARE_11
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 92
             name: CENTIARE_11
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 93
             name: RED_DOMINICALE_EURO_11
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 94
             name: RED_AGRARIO_EURO_11
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 95
             name: ID_PORZIONE_12
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note: 12 TABELLA PORZIONI (20 elementi)
           - seq: 96
             name: QUALITA_12
-            parsetype: numerico
+            parsetype: numeric
             len: 3
             note:
           - seq: 97
             name: CLASSE_12
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note:
           - seq: 98
             name: ETTARI_12
-            parsetype: numerico
+            parsetype: numeric
             len: 5
             note:
           - seq: 99
             name: ARE_12
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 100
             name: CENTIARE_12
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 101
             name: RED_DOMINICALE_EURO_12
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 102
             name: RED_AGRARIO_EURO_12
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 103
             name: ID_PORZIONE_13
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note: 13 TABELLA PORZIONI (20 elementi)
           - seq: 104
             name: QUALITA_13
-            parsetype: numerico
+            parsetype: numeric
             len: 3
             note:
           - seq: 105
             name: CLASSE_13
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note:
           - seq: 106
             name: ETTARI_13
-            parsetype: numerico
+            parsetype: numeric
             len: 5
             note:
           - seq: 107
             name: ARE_13
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 108
             name: CENTIARE_13
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 109
             name: RED_DOMINICALE_EURO_13
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 110
             name: RED_AGRARIO_EURO_13
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 111
             name: ID_PORZIONE_14
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note: 14 TABELLA PORZIONI (20 elementi)
           - seq: 112
             name: QUALITA_14
-            parsetype: numerico
+            parsetype: numeric
             len: 3
             note:
           - seq: 113
             name: CLASSE_14
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note:
           - seq: 114
             name: ETTARI_14
-            parsetype: numerico
+            parsetype: numeric
             len: 5
             note:
           - seq: 115
             name: ARE_14
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 116
             name: CENTIARE_14
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 117
             name: RED_DOMINICALE_EURO_14
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 118
             name: RED_AGRARIO_EURO_14
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 119
             name: ID_PORZIONE_15
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note: 15 TABELLA PORZIONI (20 elementi)
           - seq: 120
             name: QUALITA_15
-            parsetype: numerico
+            parsetype: numeric
             len: 3
             note:
           - seq: 121
             name: CLASSE_15
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note:
           - seq: 122
             name: ETTARI_15
-            parsetype: numerico
+            parsetype: numeric
             len: 5
             note:
           - seq: 123
             name: ARE_15
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 124
             name: CENTIARE_15
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 125
             name: RED_DOMINICALE_EURO_15
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 126
             name: RED_AGRARIO_EURO_15
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 127
             name: ID_PORZIONE_16
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note: 16 TABELLA PORZIONI (20 elementi)
           - seq: 128
             name: QUALITA_16
-            parsetype: numerico
+            parsetype: numeric
             len: 3
             note:
           - seq: 129
             name: CLASSE_16
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note:
           - seq: 130
             name: ETTARI_16
-            parsetype: numerico
+            parsetype: numeric
             len: 5
             note:
           - seq: 131
             name: ARE_16
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 132
             name: CENTIARE_16
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 133
             name: RED_DOMINICALE_EURO_16
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 134
             name: RED_AGRARIO_EURO_16
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 135
             name: ID_PORZIONE_17
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note: 17 TABELLA PORZIONI (20 elementi)
           - seq: 136
             name: QUALITA_17
-            parsetype: numerico
+            parsetype: numeric
             len: 3
             note:
           - seq: 137
             name: CLASSE_17
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note:
           - seq: 138
             name: ETTARI_17
-            parsetype: numerico
+            parsetype: numeric
             len: 5
             note:
           - seq: 139
             name: ARE_17
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 140
             name: CENTIARE_17
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 141
             name: RED_DOMINICALE_EURO_17
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 142
             name: RED_AGRARIO_EURO_17
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 143
             name: ID_PORZIONE_18
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note: 18 TABELLA PORZIONI (20 elementi)
           - seq: 144
             name: QUALITA_18
-            parsetype: numerico
+            parsetype: numeric
             len: 3
             note:
           - seq: 145
             name: CLASSE_18
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note:
           - seq: 146
             name: ETTARI_18
-            parsetype: numerico
+            parsetype: numeric
             len: 5
             note:
           - seq: 147
             name: ARE_18
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 148
             name: CENTIARE_18
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 149
             name: RED_DOMINICALE_EURO_18
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 150
             name: RED_AGRARIO_EURO_18
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 151
             name: ID_PORZIONE_19
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note: 19 TABELLA PORZIONI (20 elementi)
           - seq: 152
             name: QUALITA_19
-            parsetype: numerico
+            parsetype: numeric
             len: 3
             note:
           - seq: 153
             name: CLASSE_19
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note:
           - seq: 154
             name: ETTARI_19
-            parsetype: numerico
+            parsetype: numeric
             len: 5
             note:
           - seq: 155
             name: ARE_19
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 156
             name: CENTIARE_19
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 157
             name: RED_DOMINICALE_EURO_19
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 158
             name: RED_AGRARIO_EURO_19
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 159
             name: ID_PORZIONE_20
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note: 20 TABELLA PORZIONI (20 elementi)
           - seq: 160
             name: QUALITA_20
-            parsetype: numerico
+            parsetype: numeric
             len: 3
             note:
           - seq: 161
             name: CLASSE_20
-            parsetype: alfanumerico
+            parsetype: string
             len: 2
             note:
           - seq: 162
             name: ETTARI_20
-            parsetype: numerico
+            parsetype: numeric
             len: 5
             note:
           - seq: 163
             name: ARE_20
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 164
             name: CENTIARE_20
-            parsetype: numerico
+            parsetype: numeric
             len: 2
             note:
           - seq: 165
             name: RED_DOMINICALE_EURO_20
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
           - seq: 166
             name: RED_AGRARIO_EURO_20
-            parsetype: numerico
+            parsetype: FIXED(3)
             len: 11
             note: (gli ultimi 3 caratteri sono decimali)
+        output:
+          - name:   riserve
+            prefix:
+            suffix: _riserve
+            mappings:
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: id_porzione
+                  alias: ID_PORZIONE_1
+                - name: qualita
+                  alias: QUALITA_1
+                - name: classe
+                  alias: CLASSE_1
+                - name: sup_ettari
+                  alias: ETTARI_1
+                - name: sup_are
+                  alias: ARE_1
+                - name: sup_centiare
+                  alias: CENTIARE_1
+                - name: red_dominicale_euro
+                  alias: RED_DOMINICALE_EURO_1
+                - name: red_agrario_euro
+                  alias: RED_AGRARIO_EURO_1
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: id_porzione
+                  alias: ID_PORZIONE_1
+                - name: qualita
+                  alias: QUALITA_1
+                - name: classe
+                  alias: CLASSE_1
+                - name: sup_ettari
+                  alias: ETTARI_1
+                - name: sup_are
+                  alias: ARE_1
+                - name: sup_centiare
+                  alias: CENTIARE_1
+                - name: red_dominicale_euro
+                  alias: RED_DOMINICALE_EURO_1
+                - name: red_agrario_euro
+                  alias: RED_AGRARIO_EURO_1
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: id_porzione
+                  alias: ID_PORZIONE_1
+                - name: qualita
+                  alias: QUALITA_1
+                - name: classe
+                  alias: CLASSE_1
+                - name: sup_ettari
+                  alias: ETTARI_1
+                - name: sup_are
+                  alias: ARE_1
+                - name: sup_centiare
+                  alias: CENTIARE_1
+                - name: red_dominicale_euro
+                  alias: RED_DOMINICALE_EURO_1
+                - name: red_agrario_euro
+                  alias: RED_AGRARIO_EURO_1
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: id_porzione
+                  alias: ID_PORZIONE_1
+                - name: qualita
+                  alias: QUALITA_1
+                - name: classe
+                  alias: CLASSE_1
+                - name: sup_ettari
+                  alias: ETTARI_1
+                - name: sup_are
+                  alias: ARE_1
+                - name: sup_centiare
+                  alias: CENTIARE_1
+                - name: red_dominicale_euro
+                  alias: RED_DOMINICALE_EURO_1
+                - name: red_agrario_euro
+                  alias: RED_AGRARIO_EURO_1
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: id_porzione
+                  alias: ID_PORZIONE_1
+                - name: qualita
+                  alias: QUALITA_1
+                - name: classe
+                  alias: CLASSE_1
+                - name: sup_ettari
+                  alias: ETTARI_1
+                - name: sup_are
+                  alias: ARE_1
+                - name: sup_centiare
+                  alias: CENTIARE_1
+                - name: red_dominicale_euro
+                  alias: RED_DOMINICALE_EURO_1
+                - name: red_agrario_euro
+                  alias: RED_AGRARIO_EURO_1
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: id_porzione
+                  alias: ID_PORZIONE_1
+                - name: qualita
+                  alias: QUALITA_1
+                - name: classe
+                  alias: CLASSE_1
+                - name: sup_ettari
+                  alias: ETTARI_1
+                - name: sup_are
+                  alias: ARE_1
+                - name: sup_centiare
+                  alias: CENTIARE_1
+                - name: red_dominicale_euro
+                  alias: RED_DOMINICALE_EURO_1
+                - name: red_agrario_euro
+                  alias: RED_AGRARIO_EURO_1
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: id_porzione
+                  alias: ID_PORZIONE_2
+                - name: qualita
+                  alias: QUALITA_2
+                - name: classe
+                  alias: CLASSE_2
+                - name: sup_ettari
+                  alias: ETTARI_2
+                - name: sup_are
+                  alias: ARE_2
+                - name: sup_centiare
+                  alias: CENTIARE_2
+                - name: red_dominicale_euro
+                  alias: RED_DOMINICALE_EURO_2
+                - name: red_agrario_euro
+                  alias: RED_AGRARIO_EURO_2
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: id_porzione
+                  alias: ID_PORZIONE_2
+                - name: qualita
+                  alias: QUALITA_2
+                - name: classe
+                  alias: CLASSE_2
+                - name: sup_ettari
+                  alias: ETTARI_2
+                - name: sup_are
+                  alias: ARE_2
+                - name: sup_centiare
+                  alias: CENTIARE_2
+                - name: red_dominicale_euro
+                  alias: RED_DOMINICALE_EURO_2
+                - name: red_agrario_euro
+                  alias: RED_AGRARIO_EURO_2
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: id_porzione
+                  alias: ID_PORZIONE_3
+                - name: qualita
+                  alias: QUALITA_3
+                - name: classe
+                  alias: CLASSE_3
+                - name: sup_ettari
+                  alias: ETTARI_3
+                - name: sup_are
+                  alias: ARE_3
+                - name: sup_centiare
+                  alias: CENTIARE_3
+                - name: red_dominicale_euro
+                  alias: RED_DOMINICALE_EURO_3
+                - name: red_agrario_euro
+                  alias: RED_AGRARIO_EURO_3
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: id_porzione
+                  alias: ID_PORZIONE_4
+                - name: qualita
+                  alias: QUALITA_4
+                - name: classe
+                  alias: CLASSE_4
+                - name: sup_ettari
+                  alias: ETTARI_4
+                - name: sup_are
+                  alias: ARE_4
+                - name: sup_centiare
+                  alias: CENTIARE_4
+                - name: red_dominicale_euro
+                  alias: RED_DOMINICALE_EURO_4
+                - name: red_agrario_euro
+                  alias: RED_AGRARIO_EURO_4
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: id_porzione
+                  alias: ID_PORZIONE_5
+                - name: qualita
+                  alias: QUALITA_5
+                - name: classe
+                  alias: CLASSE_5
+                - name: sup_ettari
+                  alias: ETTARI_5
+                - name: sup_are
+                  alias: ARE_5
+                - name: sup_centiare
+                  alias: CENTIARE_5
+                - name: red_dominicale_euro
+                  alias: RED_DOMINICALE_EURO_5
+                - name: red_agrario_euro
+                  alias: RED_AGRARIO_EURO_5
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: id_porzione
+                  alias: ID_PORZIONE_6
+                - name: qualita
+                  alias: QUALITA_6
+                - name: classe
+                  alias: CLASSE_6
+                - name: sup_ettari
+                  alias: ETTARI_6
+                - name: sup_are
+                  alias: ARE_6
+                - name: sup_centiare
+                  alias: CENTIARE_6
+                - name: red_dominicale_euro
+                  alias: RED_DOMINICALE_EURO_6
+                - name: red_agrario_euro
+                  alias: RED_AGRARIO_EURO_6
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: id_porzione
+                  alias: ID_PORZIONE_7
+                - name: qualita
+                  alias: QUALITA_7
+                - name: classe
+                  alias: CLASSE_7
+                - name: sup_ettari
+                  alias: ETTARI_7
+                - name: sup_are
+                  alias: ARE_7
+                - name: sup_centiare
+                  alias: CENTIARE_7
+                - name: red_dominicale_euro
+                  alias: RED_DOMINICALE_EURO_7
+                - name: red_agrario_euro
+                  alias: RED_AGRARIO_EURO_7
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: id_porzione
+                  alias: ID_PORZIONE_8
+                - name: qualita
+                  alias: QUALITA_8
+                - name: classe
+                  alias: CLASSE_8
+                - name: sup_ettari
+                  alias: ETTARI_8
+                - name: sup_are
+                  alias: ARE_8
+                - name: sup_centiare
+                  alias: CENTIARE_8
+                - name: red_dominicale_euro
+                  alias: RED_DOMINICALE_EURO_8
+                - name: red_agrario_euro
+                  alias: RED_AGRARIO_EURO_8
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: id_porzione
+                  alias: ID_PORZIONE_9
+                - name: qualita
+                  alias: QUALITA_9
+                - name: classe
+                  alias: CLASSE_9
+                - name: sup_ettari
+                  alias: ETTARI_9
+                - name: sup_are
+                  alias: ARE_9
+                - name: sup_centiare
+                  alias: CENTIARE_9
+                - name: red_dominicale_euro
+                  alias: RED_DOMINICALE_EURO_9
+                - name: red_agrario_euro
+                  alias: RED_AGRARIO_EURO_9
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: id_porzione
+                  alias: ID_PORZIONE_10
+                - name: qualita
+                  alias: QUALITA_10
+                - name: classe
+                  alias: CLASSE_10
+                - name: sup_ettari
+                  alias: ETTARI_10
+                - name: sup_are
+                  alias: ARE_10
+                - name: sup_centiare
+                  alias: CENTIARE_10
+                - name: red_dominicale_euro
+                  alias: RED_DOMINICALE_EURO_10
+                - name: red_agrario_euro
+                  alias: RED_AGRARIO_EURO_10
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: id_porzione
+                  alias: ID_PORZIONE_11
+                - name: qualita
+                  alias: QUALITA_11
+                - name: classe
+                  alias: CLASSE_11
+                - name: sup_ettari
+                  alias: ETTARI_11
+                - name: sup_are
+                  alias: ARE_11
+                - name: sup_centiare
+                  alias: CENTIARE_11
+                - name: red_dominicale_euro
+                  alias: RED_DOMINICALE_EURO_11
+                - name: red_agrario_euro
+                  alias: RED_AGRARIO_EURO_11
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: id_porzione
+                  alias: ID_PORZIONE_12
+                - name: qualita
+                  alias: QUALITA_12
+                - name: classe
+                  alias: CLASSE_12
+                - name: sup_ettari
+                  alias: ETTARI_12
+                - name: sup_are
+                  alias: ARE_12
+                - name: sup_centiare
+                  alias: CENTIARE_12
+                - name: red_dominicale_euro
+                  alias: RED_DOMINICALE_EURO_12
+                - name: red_agrario_euro
+                  alias: RED_AGRARIO_EURO_12
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: id_porzione
+                  alias: ID_PORZIONE_13
+                - name: qualita
+                  alias: QUALITA_13
+                - name: classe
+                  alias: CLASSE_13
+                - name: sup_ettari
+                  alias: ETTARI_13
+                - name: sup_are
+                  alias: ARE_13
+                - name: sup_centiare
+                  alias: CENTIARE_13
+                - name: red_dominicale_euro
+                  alias: RED_DOMINICALE_EURO_13
+                - name: red_agrario_euro
+                  alias: RED_AGRARIO_EURO_13
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: id_porzione
+                  alias: ID_PORZIONE_14
+                - name: qualita
+                  alias: QUALITA_14
+                - name: classe
+                  alias: CLASSE_14
+                - name: sup_ettari
+                  alias: ETTARI_14
+                - name: sup_are
+                  alias: ARE_14
+                - name: sup_centiare
+                  alias: CENTIARE_14
+                - name: red_dominicale_euro
+                  alias: RED_DOMINICALE_EURO_14
+                - name: red_agrario_euro
+                  alias: RED_AGRARIO_EURO_14
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: id_porzione
+                  alias: ID_PORZIONE_15
+                - name: qualita
+                  alias: QUALITA_15
+                - name: classe
+                  alias: CLASSE_15
+                - name: sup_ettari
+                  alias: ETTARI_15
+                - name: sup_are
+                  alias: ARE_15
+                - name: sup_centiare
+                  alias: CENTIARE_15
+                - name: red_dominicale_euro
+                  alias: RED_DOMINICALE_EURO_15
+                - name: red_agrario_euro
+                  alias: RED_AGRARIO_EURO_15
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: id_porzione
+                  alias: ID_PORZIONE_16
+                - name: qualita
+                  alias: QUALITA_16
+                - name: classe
+                  alias: CLASSE_16
+                - name: sup_ettari
+                  alias: ETTARI_16
+                - name: sup_are
+                  alias: ARE_16
+                - name: sup_centiare
+                  alias: CENTIARE_16
+                - name: red_dominicale_euro
+                  alias: RED_DOMINICALE_EURO_16
+                - name: red_agrario_euro
+                  alias: RED_AGRARIO_EURO_16
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: id_porzione
+                  alias: ID_PORZIONE_17
+                - name: qualita
+                  alias: QUALITA_17
+                - name: classe
+                  alias: CLASSE_17
+                - name: sup_ettari
+                  alias: ETTARI_17
+                - name: sup_are
+                  alias: ARE_17
+                - name: sup_centiare
+                  alias: CENTIARE_17
+                - name: red_dominicale_euro
+                  alias: RED_DOMINICALE_EURO_17
+                - name: red_agrario_euro
+                  alias: RED_AGRARIO_EURO_17
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: id_porzione
+                  alias: ID_PORZIONE_17
+                - name: qualita
+                  alias: QUALITA_17
+                - name: classe
+                  alias: CLASSE_17
+                - name: sup_ettari
+                  alias: ETTARI_17
+                - name: sup_are
+                  alias: ARE_17
+                - name: sup_centiare
+                  alias: CENTIARE_17
+                - name: red_dominicale_euro
+                  alias: RED_DOMINICALE_EURO_17
+                - name: red_agrario_euro
+                  alias: RED_AGRARIO_EURO_17
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: id_porzione
+                  alias: ID_PORZIONE_18
+                - name: qualita
+                  alias: QUALITA_18
+                - name: classe
+                  alias: CLASSE_18
+                - name: sup_ettari
+                  alias: ETTARI_18
+                - name: sup_are
+                  alias: ARE_18
+                - name: sup_centiare
+                  alias: CENTIARE_18
+                - name: red_dominicale_euro
+                  alias: RED_DOMINICALE_EURO_18
+                - name: red_agrario_euro
+                  alias: RED_AGRARIO_EURO_18
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: id_porzione
+                  alias: ID_PORZIONE_19
+                - name: qualita
+                  alias: QUALITA_19
+                - name: classe
+                  alias: CLASSE_19
+                - name: sup_ettari
+                  alias: ETTARI_19
+                - name: sup_are
+                  alias: ARE_19
+                - name: sup_centiare
+                  alias: CENTIARE_19
+                - name: red_dominicale_euro
+                  alias: RED_DOMINICALE_EURO_19
+                - name: red_agrario_euro
+                  alias: RED_AGRARIO_EURO_19
+              -
+                - name: cod_com
+                  alias: CODICE_COMUNE
+                - name: sezione
+                  alias: SEZIONE
+                - name: id_immobile
+                  alias: ID_IMMOBILE
+                - name: tipo_immobile
+                  alias: TIPO_IMMOBILE
+                - name: progressivo_stadio
+                  alias: PROGRESSIVO
+                - name: tipo_record
+                  alias: TIPORECORD
+                - name: id_porzione
+                  alias: ID_PORZIONE_20
+                - name: qualita
+                  alias: QUALITA_20
+                - name: classe
+                  alias: CLASSE_20
+                - name: sup_ettari
+                  alias: ETTARI_20
+                - name: sup_are
+                  alias: ARE_20
+                - name: sup_centiare
+                  alias: CENTIARE_20
+                - name: red_dominicale_euro
+                  alias: RED_DOMINICALE_EURO_20
+                - name: red_agrario_euro
+                  alias: RED_AGRARIO_EURO_20
+
   - name: SOG
     extension: SOG
     type: delimited
@@ -3048,57 +4953,57 @@ files:
         fields:
           - seq: 1
             name: CODICE_COMUNE
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 2
             name: SEZIONE
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: tabella Sezioni censuarie
           - seq: 3
             name: ID_SOGGETTO
-            parsetype: numerico
+            parsetype: numeric
             len: 9
             note:
           - seq: 4
             name: TIPO_SOGGETTO
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: P = persona fisica
           - seq: 5
             name: COGNOME
-            parsetype: alfanumerico
+            parsetype: string
             len: 50
             note: .
           - seq: 6
             name: NOME
-            parsetype: alfanumerico
+            parsetype: string
             len: 50
             note: .
           - seq: 7
             name: SESSO
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: 1 = maschio 2 = femmina.
           - seq: 8
             name: D_NASCITA
-            parsetype: numerico
+            parsetype: DATE(GGMMAAAA)
             len: 8
-            note: formato GGMMAAAA
+            note: DATE(GGMMAAAA)
           - seq: 9
             name: LUOGO_NASCITA
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 10
             name: CODICEFISCALE
-            parsetype: alfanumerico
+            parsetype: string
             len: 16
             note:
           - seq: 11
             name: INDICAZIONI_SUPPLEMENTARI
-            parsetype: alfanumerico
+            parsetype: string
             len: 100
             note:
       - name: personagiuridica
@@ -3109,37 +5014,37 @@ files:
         fields:
           - seq: 1
             name: CODICE_COMUNE
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 2
             name: SEZIONE
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: tabella Sezioni censuarie
           - seq: 3
             name: ID_SOGGETTO
-            parsetype: numerico
+            parsetype: numeric
             len: 9
             note:
           - seq: 4
             name: TIPO_SOGGETTO
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: G = persona giuridica
           - seq: 5
             name: DENOMINAZIONE
-            parsetype: alfanumerico
+            parsetype: string
             len: 150
             note:
           - seq: 6
             name: SEDE
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note: Codice amministrativo del comune dove ha sede il soggetto
           - seq: 7
             name: CODICE_FISCALE
-            parsetype: numerico
+            parsetype: numeric
             len: 11
             note:
   - name: TIT
@@ -3153,162 +5058,162 @@ files:
         fields:
           - seq: 1
             name: CODICE_COMUNE
-            parsetype: alfanumerico
+            parsetype: string
             len: 4
             note:
           - seq: 2
             name: SEZIONE
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: tabella Sezioni censuarie
           - seq: 3
             name: ID_SOGGETTO
-            parsetype: numerico
+            parsetype: numeric
             len: 9
             note:
           - seq: 4
             name: TIPO_SOGGETTO
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: G = persona giuridica
           - seq: 5
             name: ID_IMMOBILE
-            parsetype: numerico
+            parsetype: numeric
             len: 9
             note: Progressivo dell’immobile nella banca dati
           - seq: 6
             name: TIPO_IMMOBILE
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: Assume valore T (terreni) F (fabbricati)
           - seq: 7
             name: CODICE_DIRITTO
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note:
           - seq: 8
             name: TITOLO_NON_CODIFICATO
-            parsetype: alfanumerico
+            parsetype: string
             len: 200
             note:
           - seq: 9
             name: QUOTA_NUMERATORE
-            parsetype: numerico
+            parsetype: numeric
             len: 9
             note:
           - seq: 10
             name: QUOTA_DENOMINATORE
-            parsetype: numerico
+            parsetype: numeric
             len: 9
             note:
           - seq: 11
             name: REGIME
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note: ( C = comunione, P = bene personale, S = in separazione, D = in comunione De Residuo)
           - seq: 12
             name: SOGGETTO_RIFERIMENTO
-            parsetype: numerico
+            parsetype: numeric
             len: 9
             note:
           - seq: 13
             name: INI_D_EFFICACIA
-            parsetype: numerico
+            parsetype: DATE(GGMMAAAA)
             len: 8
-            note: formato GGMMAAAA
+            note: DATE(GGMMAAAA)
           - seq: 14
             name: INI_TIPO_NOTA
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note:
           - seq: 15
             name: INI_NUMERO_NOTA
-            parsetype: alfanumerico
+            parsetype: string
             len: 6
             note:
           - seq: 16
             name: INI_PROGRESSIVO_NOTA
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note:
           - seq: 17
             name: INI_ANNO_NOTA
-            parsetype: numerico
+            parsetype: numeric
             len: 4
             note:
           - seq: 18
             name: INI_D_REGISTRAZIONE
-            parsetype: numerico
+            parsetype: DATE(GGMMAAAA)
             len: 8
-            note: formato GGMMAAAA
+            note: DATE(GGMMAAAA)
           - seq: 19
             name: PARTITA
-            parsetype: alfanumerico
+            parsetype: string
             len: 7
             note:
           - seq: 20
             name: FIN_D_EFFICACIA
-            parsetype: numerico
+            parsetype: DATE(GGMMAAAA)
             len: 8
-            note: formato GGMMAAAA
+            note: DATE(GGMMAAAA)
           - seq: 22
             name: FIN_TIPO_NOTA
-            parsetype: alfanumerico
+            parsetype: string
             len: 1
             note:
           - seq: 23
             name: FIN_NUMERO_NOTA
-            parsetype: alfanumerico
+            parsetype: string
             len: 6
             note:
           - seq: 24
             name: FIN_PROGRESSIVO_NOTA
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note:
           - seq: 25
             name: FIN_ANNO_NOTA
-            parsetype: numerico
+            parsetype: numeric
             len: 4
             note:
           - seq: 26
             name: FIN_D_REGISTRAZIONE
-            parsetype: numerico
+            parsetype: DATE(GGMMAAAA)
             len: 8
-            note: formato GGMMAAAA
+            note: DATE(GGMMAAAA)
           - seq: 27
             name: ID_MUTAZIONE_INI
-            parsetype: numerico
+            parsetype: numeric
             len: 9
             note:
           - seq: 28
             name: ID_MUTAZIONE_FIN
-            parsetype: numerico
+            parsetype: numeric
             len: 9
             note:
           - seq: 29
             name: ID_TITOLARITA
-            parsetype: numerico
+            parsetype: numeric
             len: 9
             note:
           - seq: 20
             name: INI_CODICE_CAUSALE
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note:
           - seq: 31
             name: INI_DESCRIZIONE
-            parsetype: alfanumerico
+            parsetype: string
             len: 100
             note:
           - seq: 32
             name: FIN_CODICE_CAUSALE
-            parsetype: alfanumerico
+            parsetype: string
             len: 3
             note:
           - seq: 33
             name: FIN_DESCRIZIONE
-            parsetype: alfanumerico
+            parsetype: string
             len: 100
             note:
   - name: PRM
@@ -3320,7 +5225,7 @@ files:
         fields:
           - name: Comune richiesto
             note: CODICE AMMINISTRATIVO e SEZIONE
-            parsetype: alanumerico
+            parsetype: string
           - name: Data richiesta
             note: DATA DELLA RICHIESTA
             parsetype: DATE DDMMYYYY
@@ -3335,15 +5240,19 @@ files:
             parsetype: DATE DDMMYYYY
           - name: Date registrazione
             note: (se AGGIORNAMENTI PER DATA DI REGISTRAZIONE) DATA INIZIALE E DATA FINALE INTERVALLO
-            parsetype: alanumerico
+            parsetype: string
           - name: Numero record
             note: NUMERO DI RECORD ESTRATTI
-            parsetype: numerico
-        out:
+            parsetype: numeric
+        output:
           -
             prefix: prm_
             suffix: _prm
             mappings:
-              - cod_com: Comune richiesto
-                dt_elab: Data elaborazione
-                tipo: Tipologia di estrazione
+              -
+                - name: cod_com
+                  alias: Comune richiesto
+                - name: dt_elab
+                  alias: Data elaborazione
+                - name: tipo
+                  alias: Tipologia di estrazione

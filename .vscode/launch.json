@@ -10,7 +10,7 @@
             "request": "launch",
             "mode": "debug",
             "args": [
-                "d2y",
+                "d2d",
                 "-i",
                 "example/H4461790550_1.TER",
                 // "j2y",

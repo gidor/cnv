@@ -22,7 +22,6 @@ import (
 	"path"
 
 	"github.com/gidor/cnv/cnv"
-	"github.com/gidor/cnv/cnv/delimted"
 	"github.com/spf13/cobra"
 )
 
@@ -43,6 +42,7 @@ func init() {
 	d2jCmd.Flags().StringVarP(&inputFile, "input", "i", "", "Source File")
 	d2jCmd.Flags().StringVarP(&outputDir, "output", "o", "", "Destination Dir")
 	d2jCmd.Flags().StringVarP(&desctype, "type", "t", "", "Destination Dir")
+	d2jCmd.Flags().StringVarP(&config, "config", "c", "", "Config File")
 
 	rootCmd.AddCommand(d2jCmd)
 
@@ -73,9 +73,12 @@ func d2j() {
 			desctype = "--"
 		}
 	}
+	cfg := config
+	if cfg == "" {
+		cfg = "cnv.yaml"
+	}
 
-	par := cnv.NewConversion(&reader, outputDir, "cnv.yaml", cnv.Yaml, desctype)
+	par := cnv.NewConversion(&reader, outputDir, cfg, cnv.Json, desctype)
 
-	delimted.Delimited(par)
-
+	par.Execute()
 }
