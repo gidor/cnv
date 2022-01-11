@@ -13,7 +13,7 @@ func init() {
 
 }
 
-func Load(reader io.ReadCloser) (map[string]interface{}, error) {
+func Load(reader io.Reader) (map[string]interface{}, error) {
 
 	var data = &map[string]interface{}{}
 

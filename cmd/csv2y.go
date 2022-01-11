@@ -19,8 +19,8 @@ import (
 	"io"
 	"os"
 
-	"github.com/gidor/cnv/cnv/csv"
-	"github.com/gidor/cnv/cnv/yaml"
+	"github.com/gidor/cnv/pkg/csv"
+	"github.com/gidor/cnv/pkg/yaml"
 	"github.com/spf13/cobra"
 )
 

@@ -4,7 +4,7 @@ Copyright © 2021 Gianni Doria (gianni.doria@gmail.com)
 package delimted
 
 import (
-	"github.com/gidor/cnv/cnv"
+	"github.com/gidor/cnv/pkg/cnv"
 )
 
 func Delimited(execution *cnv.Execution) {

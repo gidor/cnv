@@ -21,7 +21,7 @@ import (
 	"os"
 	"path"
 
-	"github.com/gidor/cnv/cnv"
+	"github.com/gidor/cnv/pkg/cnv"
 	"github.com/spf13/cobra"
 )
 

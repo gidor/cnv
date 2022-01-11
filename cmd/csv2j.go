@@ -7,8 +7,8 @@ import (
 	"io"
 	"os"
 
-	"github.com/gidor/cnv/cnv/csv"
-	"github.com/gidor/cnv/cnv/json"
+	"github.com/gidor/cnv/pkg/csv"
+	"github.com/gidor/cnv/pkg/json"
 
 	"github.com/spf13/cobra"
 )

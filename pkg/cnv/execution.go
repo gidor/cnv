@@ -19,7 +19,7 @@ type Execution struct {
 	Outdir      string                                   // output dir i  wich decoded file mast be written
 	cfgname     string                                   // Confguration file name
 	Filetype    string                                   // file type in input decription use extension by default
-	Cnvformat   Format                                   // Output File Format Csv, Yaml, Json
+	Cnvformat   Encoding                                 // Output File Format Csv, Yaml, Json
 	Delimiter   rune                                     // delimiter when Cnvformat is Csv
 	lasterr     error                                    // last error uccurred
 	cfg         Configuration                            // configuration
@@ -124,7 +124,7 @@ func GetConversion(reader *io.ReadCloser) *Execution {
 	return c
 }
 
-func NewConversion(reader *io.ReadCloser, outdir string, cfgname string, cnvformat Format, filetype string) *Execution {
+func NewConversion(reader *io.ReadCloser, outdir string, cfgname string, cnvformat Encoding, filetype string) *Execution {
 	// c := Execution{}
 	c := new(Execution)
 	c.Reader = reader
