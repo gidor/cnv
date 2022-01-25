@@ -1,19 +1,24 @@
 /*
-Copyright © 2021 Gianni Doria (gianni.doria@gmail.com)
+Copyright © 2021 - 2022 Gianni Doria (gianni.doria@gmail.com)
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 */
+
 package cnv
 
 import (
 	"errors"
-	"regexp"
 )
-
-var dateregexp, fixeddecregexp *regexp.Regexp
-
-func init() {
-	dateregexp = regexp.MustCompile(`^\s*date\((?P<format>.+)\)$`)
-	fixeddecregexp = regexp.MustCompile(`^\s*fixed\((?P<format>[0-9]+)\)$`)
-}
 
 // get fixed length filed from string usngi 1 based index
 func field_at(record string, start int, length int) (string, error) {
@@ -106,7 +111,7 @@ type RecordCheck struct {
 	And []Check `yaml:"and"` // list of check in and
 }
 
-func (c *RecordCheck) check(i *Input) bool {
+func (c *RecordCheck) check(i *InputFile) bool {
 	if i.delimited {
 		return c.check_delimited(i.tokens)
 	} else {

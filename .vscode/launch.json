@@ -5,7 +5,25 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch file",
+            "name": "PRM",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "args": [
+                "d2d",
+                "-i",
+                "example/H4461790550.PRM",
+                "-c",
+                "cnv.yaml",
+                
+                // "j2y",
+                // "-i",
+                // "example/test.json"
+            ],
+            "program": "${workspaceFolder}/main.go"
+        },
+        {
+            "name": "TER",
             "type": "go",
             "request": "launch",
             "mode": "debug",

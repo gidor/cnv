@@ -1,8 +1,8 @@
 params:
   delimiter: "|"
-  dateformat__: 2006/01/02
+  dateformat: 2006-01-02
   dateformat_: "20060102"
-  dateformat: "2006-01-02T15:04:05Z07:00"
+  dateformat__: "2006-01-02T15:04:05Z07:00"
   nulrender: /N
 files:
   - name: FAB
@@ -5006,6 +5006,45 @@ files:
             parsetype: string
             len: 100
             note:
+        output:
+          - name: PFISICA
+            prefix:
+            suffix: _PFISICA
+            mappings:
+              -
+                - seq: 1
+                  name: CODICE_COMUNE
+                  alias: CODICE_COMUNE
+                - seq: 2
+                  name: SEZIONE
+                  alias: SEZIONE
+                - seq: 3
+                  name: ID_SOGGETTO
+                  alias: ID_SOGGETTO
+                - seq: 4
+                  name: TIPO_SOGGETTO
+                  alias: TIPO_SOGGETTO
+                - seq: 5
+                  name: COGNOME
+                  alias: COGNOME
+                - seq: 6
+                  name: NOME
+                  alias: NOME
+                - seq: 7
+                  name: SESSO
+                  alias: SESSO
+                - seq: 8
+                  name: D_NASCITA
+                  alias: D_NASCITA
+                - seq: 9
+                  name: LUOGO_NASCITA
+                  alias: LUOGO_NASCITA
+                - seq: 10
+                  name: CODICEFISCALE
+                  alias: CODICEFISCALE
+                - seq: 11
+                  name: INDICAZIONI_SUPPLEMENTARI
+                  alias: INDICAZIONI_SUPPLEMENTARI
       - name: personagiuridica
         when:
           or:
@@ -5047,6 +5086,34 @@ files:
             parsetype: numeric
             len: 11
             note:
+        output:
+          - name: PGIURIDICA
+            prefix:
+            suffix: _PGIURIDICA
+            mappings:
+              -
+                - seq: 1
+                  name: CODICE_COMUNE
+                  alias: CODICE_COMUNE
+                - seq: 2
+                  name: SEZIONE
+                  alias: SEZIONE
+                - seq: 3
+                  name: ID_SOGGETTO
+                  alias: ID_SOGGETTO
+                - seq: 4
+                  name: TIPO_SOGGETTO
+                  alias: TIPO_SOGGETTO
+                - seq: 5
+                  name: DENOMINAZIONE
+                  alias: DENOMINAZIONE
+                - seq: 6
+                  name: SEDE
+                  alias: SEDE
+                - seq: 7
+                  name: CODICE_FISCALE
+                  alias: CODICE_FISCALE
+        
   - name: TIT
     extension: TIT
     type: delimited
@@ -5055,6 +5122,77 @@ files:
     multirecord: false
     recordstype:
       - name: titolarita
+        output:
+          - name: TITOLARITA
+            prefix:
+            suffix: _TITOLARITA
+            mappings:
+              -
+                - name: CODICE_COMUNE
+                  alias: CODICE_COMUNE
+                - name: SEZIONE
+                  alias: SEZIONE
+                - name: ID_SOGGETTO
+                  alias: ID_SOGGETTO
+                - name: TIPO_SOGGETTO
+                  alias: TIPO_SOGGETTO
+                - name: ID_IMMOBILE
+                  alias: ID_IMMOBILE
+                - name: TIPO_IMMOBILE
+                  alias: TIPO_IMMOBILE
+                - name: CODICE_DIRITTO
+                  alias: CODICE_DIRITTO
+                - name: TITOLO_NON_CODIFICATO
+                  alias: TITOLO_NON_CODIFICATO
+                - name: QUOTA_NUMERATORE
+                  alias: QUOTA_NUMERATORE
+                - name: QUOTA_DENOMINATORE
+                  alias: QUOTA_DENOMINATORE
+                - name: REGIME
+                  alias: REGIME
+                - name: SOGGETTO_RIFERIMENTO
+                  alias: SOGGETTO_RIFERIMENTO
+                - name: INI_D_EFFICACIA
+                  alias: INI_D_EFFICACIA
+                - name: INI_TIPO_NOTA
+                  alias: INI_TIPO_NOTA
+                - name: INI_NUMERO_NOTA
+                  alias: INI_NUMERO_NOTA
+                - name: INI_PROGRESSIVO_NOTA
+                  alias: INI_PROGRESSIVO_NOTA
+                - name: INI_ANNO_NOTA
+                  alias: INI_ANNO_NOTA
+                - name: INI_D_REGISTRAZIONE
+                  alias: INI_D_REGISTRAZIONE
+                - name: PARTITA
+                  alias: PARTITA
+                - name: FIN_D_EFFICACIA
+                  alias: FIN_D_EFFICACIA
+                - name: FIN_TIPO_NOTA
+                  alias: FIN_TIPO_NOTA
+                - name: FIN_NUMERO_NOTA
+                  alias: FIN_NUMERO_NOTA
+                - name: FIN_PROGRESSIVO_NOTA
+                  alias: FIN_PROGRESSIVO_NOTA
+                - name: FIN_ANNO_NOTA
+                  alias: FIN_ANNO_NOTA
+                - name: FIN_D_REGISTRAZIONE
+                  alias: FIN_D_REGISTRAZIONE
+                - name: ID_MUTAZIONE_INI
+                  alias: ID_MUTAZIONE_INI
+                - name: ID_MUTAZIONE_FIN
+                  alias: ID_MUTAZIONE_FIN
+                - name: ID_TITOLARITA
+                  alias: ID_TITOLARITA
+                - name: INI_CODICE_CAUSALE
+                  alias: INI_CODICE_CAUSALE
+                - name: INI_DESCRIZIONE
+                  alias: INI_DESCRIZIONE
+                - name: FIN_CODICE_CAUSALE
+                  alias: FIN_CODICE_CAUSALE
+                - name: FIN_DESCRIZIONE
+                  alias: FIN_DESCRIZIONE
+
         fields:
           - seq: 1
             name: CODICE_COMUNE
@@ -5231,13 +5369,13 @@ files:
             parsetype: DATE DDMMYYYY
           - name: Data elaborazione
             note: DATA DI ELABORAZIONE DELLA FORNITURA
-            parsetype: DATE DDMMYYYY
+            parsetype: DATE(GG/MM/AAAA)
           - name: Tipologia di estrazione
             note: TIPOLOGIA DI ESTRAZIONE RICHIESTA
             parsetype:
           - name: Data selezione (se ATTUALITA)
             note: DATA DI RIFERIMENTO PER LA SELEZIONE
-            parsetype: DATE DDMMYYYY
+            parsetype: DATE(GG/MM/AAAA)
           - name: Date registrazione
             note: (se AGGIORNAMENTI PER DATA DI REGISTRAZIONE) DATA INIZIALE E DATA FINALE INTERVALLO
             parsetype: string
@@ -5245,8 +5383,9 @@ files:
             note: NUMERO DI RECORD ESTRATTI
             parsetype: numeric
         output:
-          -
-            prefix: prm_
+          - name: PARAMETRI
+
+            # prefix: prm_
             suffix: _prm
             mappings:
               -

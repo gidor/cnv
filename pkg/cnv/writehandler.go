@@ -1,6 +1,19 @@
 /*
-Copyright © 2021 Gianni Doria (gianni.doria@gmail.com)
+Copyright © 2021 - 2022 Gianni Doria (gianni.doria@gmail.com)
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 */
+
 package cnv
 
 import (
@@ -104,7 +117,8 @@ func decode(v interface{}) string {
 }
 
 func delWriteHandler(ch chan (map[string]interface{}), cnv *Execution, prefix string, suffix string) {
-
+	// DBG
+	fmt.Println("Init delmited writee ", prefix)
 	outputFile := path.Join(cnv.Outdir, prefix+path.Base(cnv.Infile)+suffix+".txt")
 	var writer *os.File
 	if outputFile != "" {
@@ -121,11 +135,8 @@ func delWriteHandler(ch chan (map[string]interface{}), cnv *Execution, prefix st
 	for {
 		m, ok := <-ch
 		if ok {
-			// if seq, found := m[__sequence__].([]string); found {
-			// 	for i, v := range seq {
-			// 		fmt.Println(i, v)
-			// 	}
-			// }
+			// DBG
+			fmt.Println("Write record ", prefix)
 
 			if vals, found := m[__values__].([]interface{}); found {
 				wvals := make([]string, len(vals))
@@ -133,12 +144,15 @@ func delWriteHandler(ch chan (map[string]interface{}), cnv *Execution, prefix st
 					wvals[i] = decode(v)
 				}
 				err := encoder.Write(wvals)
+				encoder.Flush()
 				if err != nil {
 					cnv.SetError(err)
 				}
 			}
 		} else {
-			// chanel closed
+			// DBG
+			fmt.Println("chanel closed", prefix)
+			encoder.Flush()
 			return
 		}
 	}
