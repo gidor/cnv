@@ -44,8 +44,7 @@ type InputFile struct {
 }
 
 func (i *InputFile) init(cnv *Execution) {
-	// DBUG
-	fmt.Println("init file ", i.Name)
+	// DBG fmt.Println("init file ", i.Name)
 
 	i.Delimiter = strings.Trim(i.Delimiter, " ")
 	if len(i.Delimiter) > 0 {
@@ -68,6 +67,9 @@ func (i *InputFile) parse_yaml() {
 	} else {
 		i.execution.lasterr = err
 		fmt.Fprintln(os.Stderr, "reading input:", err)
+	}
+	if strings.HasPrefix(i.Filetype, ".") {
+		i.Filetype = strings.Replace(i.Filetype, ".", "", 1)
 	}
 
 }
@@ -118,8 +120,7 @@ func (i *InputFile) parse_fixed() {
 }
 
 func (i *InputFile) parse() {
-	// DBUG
-	fmt.Println("Parsing file ", i.Name)
+	// DBG fmt.Println("Parsing file ", i.Name)
 
 	if i.execution == nil {
 		i.execution.lasterr = errors.New("cannot parese if execution is not set")

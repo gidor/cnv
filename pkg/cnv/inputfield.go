@@ -59,7 +59,7 @@ type FieldDesc struct {
 }
 
 func (f *FieldDesc) parsedet() {
-	// DBUG fmt.Println("parsedet filed  ", f.Name)
+	// DBG fmt.Println("parsedet filed  ", f.Name)
 
 	if f.parse == Unizialized {
 		switch p := strings.ToLower(f.Parsetype); {
@@ -100,7 +100,7 @@ func (f *FieldDesc) parsedet() {
 }
 
 func (f *FieldDesc) parsevalue(val string) interface{} {
-	// DBUG fmt.Println("parsevalue filed  ", f.Name)
+	// DBG fmt.Println("parsevalue filed  ", f.Name)
 
 	f.parsedet()
 

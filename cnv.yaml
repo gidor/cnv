@@ -1,9 +1,9 @@
 params:
-  delimiter: "|"
+  delimiter: '	'
   dateformat: 2006-01-02
   dateformat_: "20060102"
   dateformat__: "2006-01-02T15:04:05Z07:00"
-  nulrender: /N
+  nulrender: \N
 files:
   - name: FAB
     extension: FAB

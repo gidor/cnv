@@ -16,8 +16,6 @@ limitations under the License.
 
 package cnv
 
-import "fmt"
-
 //a Mapping description
 type Mapping struct {
 	Name  string // the ouput filed name
@@ -40,8 +38,7 @@ func (o *Output) init(cnv *Execution) {
 }
 
 func (o *Output) write(data map[string]interface{}) {
-	// DBUG
-	fmt.Println("Writing to ", o.Name)
+	// DBG fmt.Println("Writing to ", o.Name)
 	for _, mapping := range o.Mappings {
 		mdata := make(map[string]interface{}, 100)
 		mdata[__sequence__] = make([]string, len(mapping))

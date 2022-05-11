@@ -26,6 +26,18 @@ import (
 	goyaml "gopkg.in/yaml.v3"
 )
 
+type paramsty struct {
+	delimiter  rune
+	nulrender  string
+	dateformat string
+}
+
+var params paramsty
+
+func init() {
+	params = paramsty{'|', "N", "2006-01-02"}
+}
+
 type Execution struct {
 	Reader      *io.ReadCloser                           // input file reader
 	Infile      string                                   // input file name
@@ -54,11 +66,9 @@ func (c *Execution) Close() {
 }
 
 func (c *Execution) end() {
-	//DBG
-	fmt.Println("ENDING")
+	//DBG fmt.Println("ENDING")
 	for name, _ := range c.outwriter {
-		//DBG
-		fmt.Println("closing", name)
+		//DBG fmt.Println("closing", name)
 		close(c.outwriter[name])
 		delete(c.outwriter, name)
 	}
@@ -119,9 +129,10 @@ func (c *Execution) init() {
 	}
 	if v, ok := c.cfg.Params["delimiter"]; ok {
 		params.delimiter = []rune(v)[0]
-	}
-	if c.Delimiter > 0 {
-		params.delimiter = c.Delimiter
+	} else {
+		if c.Delimiter > 0 {
+			params.delimiter = c.Delimiter
+		}
 	}
 	if v, ok := c.cfg.Params["dateformat"]; ok {
 		params.dateformat = v

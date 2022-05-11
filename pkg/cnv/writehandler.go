@@ -28,22 +28,10 @@ import (
 	goyaml "gopkg.in/yaml.v3"
 )
 
-type paramsty struct {
-	delimiter  rune
-	nulrender  string
-	dateformat string
-}
-
-var params paramsty
-
-func init() {
-	params = paramsty{'|', "N", "2006-01-02"}
-}
-
 // {'|',"N","2006-01-02"}
 
 func yamlWriteHandler(ch chan (map[string]interface{}), cnv *Execution, prefix string, suffix string) {
-	outputFile := path.Join(cnv.Outdir, prefix+path.Base(cnv.Infile)+suffix+".txt")
+	outputFile := path.Join(cnv.Outdir, prefix+path.Base(cnv.Infile)+suffix)
 	var writer *os.File
 	if outputFile != "" {
 		if out, err := os.Create(outputFile); err != nil {
@@ -70,7 +58,7 @@ func yamlWriteHandler(ch chan (map[string]interface{}), cnv *Execution, prefix s
 
 func jsonWriteHandler(ch chan (map[string]interface{}), cnv *Execution, prefix string, suffix string) {
 
-	outputFile := path.Join(cnv.Outdir, prefix+path.Base(cnv.Infile)+suffix+".txt")
+	outputFile := path.Join(cnv.Outdir, prefix+path.Base(cnv.Infile)+suffix)
 	var writer *os.File
 	if outputFile != "" {
 		if out, err := os.Create(outputFile); err != nil {
@@ -117,9 +105,8 @@ func decode(v interface{}) string {
 }
 
 func delWriteHandler(ch chan (map[string]interface{}), cnv *Execution, prefix string, suffix string) {
-	// DBG
-	fmt.Println("Init delmited writee ", prefix)
-	outputFile := path.Join(cnv.Outdir, prefix+path.Base(cnv.Infile)+suffix+".txt")
+	// DBG fmt.Println("Init delmited writee ", prefix)
+	outputFile := path.Join(cnv.Outdir, prefix+path.Base(cnv.Infile)+suffix)
 	var writer *os.File
 	if outputFile != "" {
 		if out, err := os.Create(outputFile); err != nil {
@@ -135,8 +122,7 @@ func delWriteHandler(ch chan (map[string]interface{}), cnv *Execution, prefix st
 	for {
 		m, ok := <-ch
 		if ok {
-			// DBG
-			fmt.Println("Write record ", prefix)
+			// DBG fmt.Println("Write record ", prefix)
 
 			if vals, found := m[__values__].([]interface{}); found {
 				wvals := make([]string, len(vals))
@@ -150,8 +136,7 @@ func delWriteHandler(ch chan (map[string]interface{}), cnv *Execution, prefix st
 				}
 			}
 		} else {
-			// DBG
-			fmt.Println("chanel closed", prefix)
+			// DBG fmt.Println("chanel closed", prefix)
 			encoder.Flush()
 			return
 		}

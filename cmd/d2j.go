@@ -17,7 +17,6 @@ limitations under the License.
 package cmd
 
 import (
-	"fmt"
 	"io"
 	"os"
 	"path"
@@ -33,7 +32,7 @@ var d2jCmd = &cobra.Command{
 	Long: `convert from delimited file described in configuration 
 to a set of json files.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("d2j called")
+		// DBG fmt.Println("d2j called")
 		d2j()
 	},
 }

@@ -16,8 +16,6 @@ limitations under the License.
 
 package cnv
 
-import "fmt"
-
 type Record struct {
 	Name      string       // only for readability porpose
 	When      RecordCheck  // Rule for decide which record type must be executed
@@ -28,8 +26,7 @@ type Record struct {
 }
 
 func (r *Record) init(cnv *Execution) {
-	// DBUG
-	fmt.Println("init record ", r.Name)
+	// DBG fmt.Println("init record ", r.Name)
 
 	r.execution = cnv
 	// for i, j := 0, len(r.Out); i < j; i++ {
@@ -45,8 +42,7 @@ func (r *Record) check(input *InputFile) bool {
 }
 
 func (r *Record) convert(input *InputFile) {
-	// DBUG
-	fmt.Println("converting record ", r.Name)
+	// DBG fmt.Println("converting record ", r.Name)
 
 	// TODO
 	r.status = 0

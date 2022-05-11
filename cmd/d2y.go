@@ -17,7 +17,6 @@ limitations under the License.
 package cmd
 
 import (
-	"fmt"
 	"io"
 	"os"
 	"path"
@@ -37,7 +36,7 @@ var d2yCmd = &cobra.Command{
 	Long: `convert from delimited file described in configuration 
 to a set of yaml files.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("d2y called")
+		// DBG fmt.Println("d2y called")
 		d2y()
 	},
 }

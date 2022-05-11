@@ -9,9 +9,14 @@ vars:
   CLI: cnv
 
 tasks:
+  install:
+    deps:
+      - cli
+    cmds:
+      - sudo install {{.BIN}}/{{.CLI}} /usr/local/bin/
   fmt:
     cmds:
-      - gofmt -l {{ .SRC }} || (gofmt -d $(SRC); exit 1)
+      - gofmt -l {{.SRC}} || (gofmt -d $(SRC); exit 1)
 
   lint:
     cmds:
@@ -33,13 +38,13 @@ tasks:
                 
   cli: 
     cmds:
-      - mkdir -p {{ .BIN }}
-      - go build -o {{ .BIN }}/{{ .CLI }}
+      - mkdir -p {{.BIN}}
+      - go build -o {{.BIN}}/{{.CLI}}
 
   wcli: 
     cmds:
-      - mkdir -p {{ .BIN }}
-      - env GOOS=windows GOARCH=amd64 go build -o {{ .BIN }}/{{ .CLI }}.exe
+      - mkdir -p {{.BIN}}
+      - env GOOS=windows GOARCH=amd64 go build -o {{.BIN}}/{{.CLI}}.exe
 
   install_deps:
     cmds:
@@ -47,7 +52,7 @@ tasks:
 
   clean:
     cmds:
-      - rm -rf {{ .BIN }}
+      - rm -rf {{.BIN}}
   default:
     deps:
       - cli
